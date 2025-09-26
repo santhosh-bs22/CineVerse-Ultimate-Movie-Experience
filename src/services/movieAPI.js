@@ -1,4 +1,8 @@
+// src/services/movieAPI.js
+
 import { TMDB_CONFIG } from '../config/tmdb';
+// 1. Static Import of allMovies
+import { allMovies } from '../data/moviesData';
 
 // Helper function to format TMDB data to match your existing structure
 const formatMovieData = (tmdbMovie) => {
@@ -35,6 +39,7 @@ const formatMovieData = (tmdbMovie) => {
 
 // Enhanced trailer fetching function
 const getTrailerUrl = (videos) => {
+// ... (omitted for brevity)
   if (!videos || !videos.results || videos.results.length === 0) return null;
   
   // Priority: Official Trailer > Trailer > Teaser > First video
@@ -61,6 +66,7 @@ const getTrailerUrl = (videos) => {
 
 // Fetch movie details including cast and crew
 const fetchMovieDetails = async (movieId) => {
+// ... (omitted for brevity)
   try {
     const response = await fetch(
       `${TMDB_CONFIG.baseUrl}/movie/${movieId}?api_key=${TMDB_CONFIG.apiKey}&append_to_response=credits,videos`
@@ -77,6 +83,7 @@ const fetchMovieDetails = async (movieId) => {
 
 // Fetch only trailers for better performance
 const fetchMovieTrailer = async (movieId) => {
+// ... (omitted for brevity)
   try {
     const response = await fetch(
       `${TMDB_CONFIG.baseUrl}/movie/${movieId}/videos?api_key=${TMDB_CONFIG.apiKey}`
@@ -98,26 +105,50 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 export const searchMovies = async (query) => {
   await delay(300);
   
+  // 1. Perform initial local search
+  const localFilteredMovies = query 
+    ? allMovies.filter(movie =>
+        (movie.Title && movie.Title.toLowerCase().includes(query.toLowerCase())) ||
+        (movie.Director && movie.Director.toLowerCase().includes(query.toLowerCase())) ||
+        (movie.Actors && movie.Actors.toLowerCase().includes(query.toLowerCase())) ||
+        (movie.Genre && movie.Genre.toLowerCase().includes(query.toLowerCase()))
+      )
+    : [];
+    
+  // Collect IDs of local movies to prevent duplicates from API results
+  const localIds = new Set(localFilteredMovies.map(m => m.imdbID));
+  
+  let finalMovies = [...localFilteredMovies];
+  let totalResults = localFilteredMovies.length;
+
   try {
     let url;
     
     if (!query || query.trim() === '') {
+      // For empty query, use discovery (Tamil popular)
       url = `${TMDB_CONFIG.baseUrl}/discover/movie?api_key=${TMDB_CONFIG.apiKey}&with_original_language=ta&sort_by=popularity.desc&page=1`;
     } else {
+      // For actual query, use search endpoint
       url = `${TMDB_CONFIG.baseUrl}/search/movie?api_key=${TMDB_CONFIG.apiKey}&query=${encodeURIComponent(query)}&with_original_language=ta`;
     }
     
     const response = await fetch(url);
     
-    if (!response.ok) throw new Error('Failed to fetch movies');
+    if (!response.ok) throw new Error('Failed to fetch movies from API');
     
     const data = await response.json();
     
     const moviesToProcess = data.results.slice(0, 12);
-    const moviesWithDetails = [];
+    const apiMoviesWithDetails = [];
     
     for (const movie of moviesToProcess) {
       try {
+        // Skip API results if they match a local ID
+        const tempId = movie.id.toString();
+        if (localIds.has(tempId)) {
+          continue;
+        }
+
         const details = await fetchMovieDetails(movie.id);
         if (!details) continue;
         
@@ -135,34 +166,28 @@ export const searchMovies = async (query) => {
         // Add trailer
         formattedMovie.Trailer = getTrailerUrl(details.videos);
         
-        moviesWithDetails.push(formattedMovie);
+        apiMoviesWithDetails.push(formattedMovie);
       } catch (error) {
         console.error(`Error processing movie ${movie.id}:`, error);
       }
     }
     
+    // 2. Combine results (local first, then API)
+    finalMovies = [...finalMovies, ...apiMoviesWithDetails];
+    totalResults = finalMovies.length;
+    
     return {
-      movies: moviesWithDetails,
-      totalResults: moviesWithDetails.length
+      movies: finalMovies,
+      totalResults: totalResults
     };
     
   } catch (error) {
-    console.error('Error searching movies:', error);
+    console.error('Error searching movies (API failed):', error);
     
-    // Fallback to local data
-    const { tamilMovies } = await import('../data/moviesData');
-    const filteredMovies = query 
-      ? tamilMovies.filter(movie =>
-          movie.Title.toLowerCase().includes(query.toLowerCase()) ||
-          movie.Director.toLowerCase().includes(query.toLowerCase()) ||
-          movie.Actors.toLowerCase().includes(query.toLowerCase()) ||
-          movie.Genre.toLowerCase().includes(query.toLowerCase())
-        )
-      : tamilMovies;
-    
+    // If API failed, return only the local results (finalMovies is currently localFilteredMovies)
     return {
-      movies: filteredMovies,
-      totalResults: filteredMovies.length
+      movies: finalMovies, 
+      totalResults: finalMovies.length
     };
   }
 };
@@ -203,14 +228,15 @@ export const getMovieDetails = async (imdbID) => {
   } catch (error) {
     console.error('Error fetching movie details:', error);
     
-    // Fallback to local data
-    const { tamilMovies } = await import('../data/moviesData');
-    return tamilMovies.find(movie => movie.imdbID === imdbID) || null;
+    // Fallback to local data (using statically imported allMovies)
+    const movie = allMovies.find(movie => movie.imdbID === imdbID)
+    return movie || null;
   }
 };
 
 // Separate function to fetch trailer only
 export const getMovieTrailer = async (imdbID) => {
+// ... (omitted for brevity)
   try {
     const movieId = parseInt(imdbID);
     
