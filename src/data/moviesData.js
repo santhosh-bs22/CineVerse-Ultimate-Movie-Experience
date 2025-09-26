@@ -214,7 +214,7 @@ export const tamilMovies = [
     Country: "India",
     Awards: "12 wins & 20 nominations",
     Poster:
-"https://m.media-amazon.com/images/M/MV5BMGI5M2Q4MDktOWVlOS00MzVjLWJlNzktMWZmYTkwOGI2MDc4XkEyXkFqcGc@.V1.jpg",
+      "https://m.media-amazon.com/images/M/MV5BMGI5M2Q4MDktOWVlOS00MzVjLWJlNzktMWZmYTkwOGI2MDc4XkEyXkFqcGc@.V1.jpg",
     imdbRating: "8.6",
     imdbVotes: "30,000",
     Type: "movie",
@@ -237,14 +237,14 @@ export const tamilMovies = [
     Country: "India",
     Awards: "8 wins & 15 nominations",
     Poster:
-"https://images.moviebuff.com/6b076c30-76a7-4863-ae73-b6a2ee786d1e?w=600",
+      "https://images.moviebuff.com/6b076c30-76a7-4863-ae73-b6a2ee786d1e?w=600",
     imdbRating: "8.7",
     imdbVotes: "20,000",
     Type: "movie",
     BoxOffice: "₹25 crore",
     Production: "Neelam Productions",
   },
-{
+  {
     imdbID: "tt11",
     Title: "Karnan",
     Year: "2021",
@@ -259,7 +259,8 @@ export const tamilMovies = [
     Language: "Tamil",
     Country: "India",
     Awards: "6 wins & 12 nominations",
-    Poster: "https://m.media-amazon.com/images/M/MV5BZWI0MTA1MmItYzU1Yi00ZGY1LWE0ZTMtZmM3MWYyMTI3ZGM0XkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BYmVmNGQ0ZDEtMGVlYS00NGY4LWEzYTMtMmNmNjQ5NWIwMTgxXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "8.4",
     imdbVotes: "18,000",
     Type: "movie",
@@ -268,7 +269,7 @@ export const tamilMovies = [
     Trailer: "https://www.youtube.com/embed/8c2lRkqkDq8",
     Featured: false,
     Trending: true,
-    Popular2025: false
+    Popular2025: false,
   },
   {
     imdbID: "tt12",
@@ -285,7 +286,8 @@ export const tamilMovies = [
     Language: "Tamil",
     Country: "India",
     Awards: "5 wins & 25 nominations",
-    Poster: "https://m.media-amazon.com/images/M/MV5BOGVjYmM0ZWEtNTFjNi00MWQxLWEwMjItYjMxM2YyMTM2ZTM0XkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTCXOxUOCiYN2CYVeh4xkeU-o0BlKPp42zFAaauf3rYrAfo3qsR",
     imdbRating: "8.7",
     imdbVotes: "75,000",
     Type: "movie",
@@ -294,7 +296,7 @@ export const tamilMovies = [
     Trailer: "https://www.youtube.com/embed/fa_DIwRsa9o",
     Featured: true,
     Trending: true,
-    Popular2025: false
+    Popular2025: false,
   },
   // --- New Tamil Movies (2024/2025) ---
   {
@@ -312,7 +314,8 @@ export const tamilMovies = [
     Language: "Tamil",
     Country: "India",
     Awards: "N/A",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMjgwZWY4NjItYzcyZS00ZjVkLWFkMDgtMTgxNjlmZGVlYmFiXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BOTFlMTIxOGItZTk0Zi00MTk2LWJiM2UtMzlhZWYzNjQ4N2Y3XkEyXkFqcGc@._V1_.jpg",
     imdbRating: "8.1",
     imdbVotes: "45,000",
     Type: "movie",
@@ -321,7 +324,7 @@ export const tamilMovies = [
     Trailer: "https://www.youtube.com/embed/qg_Jt9V5Bgc",
     Featured: true,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt50",
@@ -338,7 +341,8 @@ export const tamilMovies = [
     Language: "Tamil",
     Country: "India",
     Awards: "N/A",
-    Poster: "https://m.media-amazon.com/images/M/MV5BZjY5M2M1Y2YtZGM4ZS00ZGYyLWI3MWEtYTY0NjMyOGNjNjIzXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSeYaFj8tnsMrxv5yjk2LtOS-1LbRmPVSL2c3FPO4NPgYykYtwvQEd8sr-dvJww17O8hrRG",
     imdbRating: "7.7",
     imdbVotes: "35,000",
     Type: "movie",
@@ -347,7 +351,7 @@ export const tamilMovies = [
     Trailer: "https://www.youtube.com/embed/oK74Kz3V6cQ",
     Featured: true,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt51",
@@ -364,7 +368,7 @@ export const tamilMovies = [
     Language: "Tamil",
     Country: "India",
     Awards: "N/A",
-    Poster: "https://m.media-amazon.com/images/M/MV5BZWQ4YzY2ODAtOTQ4YS00MTFmLWE3NDUtMmQ5YmMyOGFiM2E1XkEyXkFqcGc@._V1_.jpg",
+    Poster: "https://m.media-amazon.com/images/M/MV5BMjY2N2JhNTMtYjMwZi00YWVmLTkzNDItNzEwMGE1YjgxYTg2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
     imdbRating: "7.5",
     imdbVotes: "25,000",
     Type: "movie",
@@ -373,7 +377,7 @@ export const tamilMovies = [
     Trailer: "https://www.youtube.com/embed/6i1YQd06K4g",
     Featured: true,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
 ];
 
@@ -393,7 +397,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "Won 1 Oscar. 120 wins & 46 nominations total",
-    Poster: "https://m.media-amazon.com/images/M/MV5BODUwNDNjYzctODUxNy00ZTA2LWIyYTEtMDc5Y2E5ZjBmNTMzXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ_gA25hvAzvrTHQaotqRuOVJqQbWScm5Ig5dF4ctHmnF5bUjPpUFqKTHZRqrm8CwG-98ILbA",
     imdbRating: "7.9",
     imdbVotes: "125,000",
     Type: "movie",
@@ -402,7 +407,7 @@ export const teluguMovies = [
     Trailer: "https://www.youtube.com/embed/f_vbAtFSEc0",
     Featured: true,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt14",
@@ -419,7 +424,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "28 wins & 17 nominations",
-    Poster: "https://m.media-amazon.com/images/M/MV5BOGNkMzIyYzAtODUxZi00NmYzLTg0ZDItZDQ4YzFkZmI2YzM0XkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSwAZddfdsmgj84MRQyRDfNxl-swkZRxt2IQX3gnLkzHl3EEzyD3dduWibKdNCCqOTyaL3WIw",
     imdbRating: "8.2",
     imdbVotes: "95,000",
     Type: "movie",
@@ -428,7 +434,7 @@ export const teluguMovies = [
     Trailer: "https://www.youtube.com/embed/G62HrubdD6o",
     Featured: true,
     Trending: true,
-    Popular2025: false
+    Popular2025: false,
   },
   {
     imdbID: "tt15",
@@ -445,7 +451,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "15 wins & 30 nominations",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMTY2ODQ2NjEtNmY2Yi00NDY5LWE4NTEtNmJjYzM0MzM3OWU0XkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/pushpa--the-rise-et00129538-08-12-2021-01-21-46.jpg",
     imdbRating: "7.6",
     imdbVotes: "85,000",
     Type: "movie",
@@ -454,7 +461,7 @@ export const teluguMovies = [
     Trailer: "https://www.youtube.com/embed/Xyr0t1eYEhI",
     Featured: true,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt16",
@@ -471,7 +478,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "8 wins & 15 nominations",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMDgzZTI0MzctZmU2Yi00YzliLWJmMjYtNmU3MzQwYzE3ZGY4XkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMmY1ZjBmYzQtMmIyYS00Yzk3LTg5ZDYtZWM1ZTRkYTE3MWZlXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "7.5",
     imdbVotes: "25,000",
     Type: "movie",
@@ -480,7 +488,7 @@ export const teluguMovies = [
     Trailer: "https://www.youtube.com/embed/SbG6x6VmmCI",
     Featured: false,
     Trending: true,
-    Popular2025: false
+    Popular2025: false,
   },
   {
     imdbID: "tt17",
@@ -497,7 +505,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "3 wins & 5 nominations",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMTk1Y2Q0YzAtYzU1Yi00M2YzLTk0YzYtZmUyYjA0MjQ2YzVlXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BZDVjNTdiN2YtMDhlMC00NDYwLTk1MGUtZTBkYjI4MjE0ZDExXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
     imdbRating: "6.8",
     imdbVotes: "15,000",
     Type: "movie",
@@ -506,7 +515,7 @@ export const teluguMovies = [
     Trailer: "https://www.youtube.com/embed/7FtwVn6C7u4",
     Featured: false,
     Trending: false,
-    Popular2025: false
+    Popular2025: false,
   },
   {
     imdbID: "tt18",
@@ -523,7 +532,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "6 wins & 10 nominations",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMTYzYTk4YzYtYzQ4ZC00YjY3LWIzNmQtY2QzZTM0YzU3YzUzXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BZmU5NDU0YjktYzYwYy00N2FiLWI2YmYtNzhjOTg4NjkwN2IyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
     imdbRating: "7.2",
     imdbVotes: "12,000",
     Type: "movie",
@@ -532,7 +542,7 @@ export const teluguMovies = [
     Trailer: "https://www.youtube.com/embed/6VUvGpOo6w8",
     Featured: false,
     Trending: false,
-    Popular2025: false
+    Popular2025: false,
   },
   {
     imdbID: "tt19",
@@ -549,7 +559,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "10 wins & 15 nominations",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMTU2OTYzODQyMF5BMl5BanBnXkFtZTgwNjM1OTk0NjE@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BY2Y4ZDhmM2UtMWY0ZS00ODFmLTk2N2YtMDM1ZmQzYWI4ZDQ3XkEyXkFqcGc@._V1_.jpg",
     imdbRating: "8.1",
     imdbVotes: "35,000",
     Type: "movie",
@@ -558,7 +569,7 @@ export const teluguMovies = [
     Trailer: "https://www.youtube.com/embed/8L1VZ9BUa1M",
     Featured: true,
     Trending: false,
-    Popular2025: false
+    Popular2025: false,
   },
   {
     imdbID: "tt20",
@@ -575,7 +586,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "8 wins & 12 nominations",
-    Poster: "https://m.media-amazon.com/images/M/MV5BZDU1NjRkY2MtY2Q5ZC00Y2U1LWI4YzYtYjU4Y2U0Y2Q5Y2U5XkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/S/pv-target-images/91a374a37a0479c98ac554b49d8dc577a4125502f70630659023e6fc99bcdcc2.jpg",
     imdbRating: "7.6",
     imdbVotes: "18,000",
     Type: "movie",
@@ -584,7 +596,7 @@ export const teluguMovies = [
     Trailer: "https://www.youtube.com/embed/2M2LdR7oWlI",
     Featured: false,
     Trending: true,
-    Popular2025: false
+    Popular2025: false,
   },
   {
     imdbID: "tt21",
@@ -601,7 +613,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "22 wins & 25 nominations",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMTY4Y2Q0YzAtYzU1Yi00Y2UzLTk0YzYtZmUyYjA0MjQ2YzVlXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/S/pv-target-images/1914efd9becacccd7a0ae0e6e99fa0a6da73d06b6318d2e474d6d9e9f75b261d.jpg",
     imdbRating: "8.5",
     imdbVotes: "15,000",
     Type: "movie",
@@ -610,7 +623,7 @@ export const teluguMovies = [
     Trailer: "https://www.youtube.com/embed/7FtwVn6C7u4",
     Featured: true,
     Trending: false,
-    Popular2025: false
+    Popular2025: false,
   },
   {
     imdbID: "tt22",
@@ -627,7 +640,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "2 wins & 5 nominations",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMTY4Y2Q0YzAtYzU1Yi00Y2UzLTk0YzYtZmUyYjA0MjQ2YzVlXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BNmYyNGFjMjctMWVkZC00MzNmLTk4NTAtMGVjZmJmOWVhY2Y1XkEyXkFqcGc@._V1_.jpg",
     imdbRating: "7.1",
     imdbVotes: "8,000",
     Type: "movie",
@@ -636,7 +650,7 @@ export const teluguMovies = [
     Trailer: "https://www.youtube.com/embed/6VUvGpOo6w8",
     Featured: false,
     Trending: false,
-    Popular2025: false
+    Popular2025: false,
   },
   {
     imdbID: "tt23",
@@ -653,7 +667,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "12 wins & 18 nominations",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMTY4Y2Q0YzAtYzU1Yi00Y2UzLTk0YzYtZmUyYjA0MjQ2YzVlXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BOTQ1M2U2NzItYjFkZS00NjhlLTk0MGItNDVmMWM4ODAyMjkwXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "8.5",
     imdbVotes: "22,000",
     Type: "movie",
@@ -662,7 +677,7 @@ export const teluguMovies = [
     Trailer: "https://www.youtube.com/embed/7FtwVn6C7u4",
     Featured: true,
     Trending: true,
-    Popular2025: false
+    Popular2025: false,
   },
   {
     imdbID: "tt24",
@@ -679,7 +694,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "5 wins & 10 nominations",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMTY4Y2Q0YzAtYzU1Yi00Y2UzLTk0YzYtZmUyYjA0MjQ2YzVlXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/S/pv-target-images/6069ba7fb32fdfcf2501135df224fa844d25008a7f54548bce2a8ac7fa6acdbb.jpg",
     imdbRating: "7.8",
     imdbVotes: "12,000",
     Type: "movie",
@@ -688,7 +704,7 @@ export const teluguMovies = [
     Trailer: "https://www.youtube.com/embed/6VUvGpOo6w8",
     Featured: false,
     Trending: false,
-    Popular2025: false
+    Popular2025: false,
   },
   // --- Latest Telugu Movies (2024/2025) ---
   {
@@ -706,7 +722,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "N/A",
-    Poster: "https://m.media-amazon.com/images/M/MV5BODAyY2Q3YzMtM2FkOS00ZTM0LWEwODEtN2Q5ZDlmY2YxMjJkXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMGRjZTQ0YzUtYWJjMS00OGY1LTkwNjMtYjYwZmFmNTY3MGZkXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "7.1",
     imdbVotes: "75,000",
     Type: "movie",
@@ -732,7 +749,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "N/A",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMTY2ODQ2NjEtNmY2Yi00NDY5LWE4NTEtNmJjYzM0MzM3OWU0XkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BNDM3N2UzM2UtMjEwMC00NGUzLThmMmQtNGMyM2VmMDA0ZWEwXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "N/A",
     imdbVotes: "N/A",
     Type: "movie",
@@ -758,7 +776,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "N/A",
-    Poster: "https://m.media-amazon.com/images/M/MV5BZWUwNthhY2MtZWY1ZC00MTY2LWI3ZmMtNTAyY2E3ZDc1MTZkXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BNWY4NDgyN2QtNDRkZS00OGRjLWFhN2UtODc3Mzk2ZjQ0ZjhkXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "N/A",
     imdbVotes: "N/A",
     Type: "movie",
@@ -784,7 +803,8 @@ export const teluguMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "N/A",
-    Poster: "https://via.placeholder.com/300x450/333/fff?text=Game+Changer+2025",
+    Poster:
+      "https://m.media-amazon.com/images/S/pv-target-images/e171501823be87e149188a913fd3322d2e0a691d09a658e53013cde3989328ca.jpg",
     imdbRating: "N/A",
     imdbVotes: "N/A",
     Type: "movie",
@@ -813,7 +833,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Nominated for 4 Oscars. 49 wins & 128 nominations total",
-    Poster: "https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "7.6",
     imdbVotes: "245,000",
     Type: "movie",
@@ -822,7 +843,7 @@ export const englishMovies = [
     Trailer: "https://www.youtube.com/embed/d9MyW72ELq0",
     Featured: true,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt26",
@@ -839,7 +860,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Nominated for 1 Oscar. 69 wins & 130 nominations total",
-    Poster: "https://m.media-amazon.com/images/M/MV5BZWMyYzFjYTYtNTRjYi00OGExLWE2YzgtOGRmYjAxZTU3NzBiXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BZWMyYzFjYTYtNTRjYi00OGExLWE2YzgtOGRmYjAxZTU3NzBiXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "8.2",
     imdbVotes: "685,000",
     Type: "movie",
@@ -848,7 +870,7 @@ export const englishMovies = [
     Trailer: "https://www.youtube.com/embed/JfVOs4VSpmA",
     Featured: true,
     Trending: false,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt27",
@@ -865,7 +887,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Nominated for 1 Oscar. 70 wins & 130 nominations total",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg",
     imdbRating: "8.4",
     imdbVotes: "1,100,000",
     Type: "movie",
@@ -874,7 +897,7 @@ export const englishMovies = [
     Trailer: "https://www.youtube.com/embed/TcMBFSGVi1c",
     Featured: true,
     Trending: true,
-    Popular2025: false
+    Popular2025: false,
   },
   {
     imdbID: "tt28",
@@ -891,7 +914,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Nominated for 3 Oscars. 35 wins & 175 nominations total",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "7.8",
     imdbVotes: "625,000",
     Type: "movie",
@@ -900,7 +924,7 @@ export const englishMovies = [
     Trailer: "https://www.youtube.com/embed/mqqft2x_Aa4",
     Featured: true,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt29",
@@ -917,7 +941,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Won 1 Oscar. 92 wins & 240 nominations total",
-    Poster: "https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhM2M4XkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhM2M4XkEyXkFqcGc@._V1_.jpg",
     imdbRating: "8.2",
     imdbVotes: "580,000",
     Type: "movie",
@@ -926,7 +951,7 @@ export const englishMovies = [
     Trailer: "https://www.youtube.com/embed/qSqVVswa420",
     Featured: true,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt30",
@@ -943,7 +968,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Won 6 Oscars. 159 wins & 263 nominations total",
-    Poster: "https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "8.0",
     imdbVotes: "655,000",
     Type: "movie",
@@ -952,7 +978,7 @@ export const englishMovies = [
     Trailer: "https://www.youtube.com/embed/8g18jFHCLXk",
     Featured: true,
     Trending: false,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt31",
@@ -969,7 +995,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Nominated for 2 Oscars. 10 wins & 45 nominations total",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "7.7",
     imdbVotes: "285,000",
     Type: "movie",
@@ -978,7 +1005,7 @@ export const englishMovies = [
     Trailer: "https://www.youtube.com/embed/qEVUtrk8_B4",
     Featured: true,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt32",
@@ -995,7 +1022,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Nominated for 5 Oscars. 20 wins & 135 nominations total",
-    Poster: "https://m.media-amazon.com/images/M/MV5BY2FlN2U2NzMtZmE2OS00Y2EzLTkwZGUtMDUxOTM5M2I4Y2Y2XkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BY2FlN2U2NzMtZmE2OS00Y2EzLTkwZGUtMDUxOTM5M2I4Y2Y2XkEyXkFqcGc@._V1_.jpg",
     imdbRating: "6.7",
     imdbVotes: "355,000",
     Type: "movie",
@@ -1004,7 +1032,7 @@ export const englishMovies = [
     Trailer: "https://www.youtube.com/embed/RlOB3UALvrQ",
     Featured: false,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt33",
@@ -1021,7 +1049,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Nominated for 2 Oscars. 5 wins & 45 nominations total",
-    Poster: "https://m.media-amazon.com/images/M/MV5BOTJhNzlmNzctNTU5Yy00N2YwLThhMjQtZDM0YjEzN2Y0ZjNhXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BOTJhNzlmNzctNTU5Yy00N2YwLThhMjQtZDM0YjEzN2Y0ZjNhXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "7.1",
     imdbVotes: "245,000",
     Type: "movie",
@@ -1030,7 +1059,7 @@ export const englishMovies = [
     Trailer: "https://www.youtube.com/embed/TnGl01FkMMo",
     Featured: true,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt34",
@@ -1047,7 +1076,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Nominated for 1 Oscar. 5 wins & 55 nominations total",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMDgxOTdjMzYtZGQxMS00ZTAzLWI4Y2UtMTQzN2VlYjYyZWRiXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMDgxOTdjMzYtZGQxMS00ZTAzLWI4Y2UtMTQzN2VlYjYyZWRiXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "8.0",
     imdbVotes: "285,000",
     Type: "movie",
@@ -1056,7 +1086,7 @@ export const englishMovies = [
     Trailer: "https://www.youtube.com/embed/u3V5KDHRQvk",
     Featured: true,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt35",
@@ -1073,7 +1103,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Won 7 Oscars. 385 wins & 350 nominations total",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "8.3",
     imdbVotes: "625,000",
     Type: "movie",
@@ -1082,7 +1113,7 @@ export const englishMovies = [
     Trailer: "https://www.youtube.com/embed/uYPbbksJxIg",
     Featured: true,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt36",
@@ -1099,7 +1130,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Won 1 Oscar. 208 wins & 351 nominations total",
-    Poster: "https://m.media-amazon.com/images/M/MV5BNjU3N2QxNzYtMjk1NC00MTc4LTk1NTQtMmUxNTljM2I0NDA5XkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BNjU3N2QxNzYtMjk1NC00MTc4LTk1NTQtMmUxNTljM2I0NDA5XkEyXkFqcGc@._V1_.jpg",
     imdbRating: "6.9",
     imdbVotes: "485,000",
     Type: "movie",
@@ -1108,7 +1140,7 @@ export const englishMovies = [
     Trailer: "https://www.youtube.com/embed/pBk4NYhWNMM",
     Featured: true,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
   // --- Latest English Movies (2024/2025) ---
   {
@@ -1126,7 +1158,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "N/A",
-    Poster: "https://m.media-amazon.com/images/M/MV5BM2QzM2JmNTYtMWU0My00MzJmLTkwN2YtMjUzMzEzNjliZTAzXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BM2QzM2JmNTYtMWU0My00MzJmLTkwN2YtMjUzMzEzNjliZTAzXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "8.6",
     imdbVotes: "450,000",
     Type: "movie",
@@ -1135,7 +1168,7 @@ export const englishMovies = [
     Trailer: "https://www.youtube.com/embed/Way9Dexny3w",
     Featured: true,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt44",
@@ -1152,7 +1185,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "N/A",
-    Poster: "https://m.media-amazon.com/images/M/MV5BODZmYjQ4Y2YtM2Q2OS00ZTNlLThiNDgtOTJjMjMwM2U2ZTM0XkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BODZmYjQ4Y2YtM2Q2OS00ZTNlLThiNDgtOTJjMjMwM2U2ZTM0XkEyXkFqcGc@._V1_.jpg",
     imdbRating: "8.0",
     imdbVotes: "320,000",
     Type: "movie",
@@ -1178,7 +1212,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "N/A",
-    Poster: "https://m.media-amazon.com/images/M/MV5BNTA1YzE3NTktMjY1My00NjhkLWE4OWItODRjMWYwMjEwOGFiXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BNTA1YzE3NTktMjY1My00NjhkLWE4OWItODRjMWYwMjEwOGFiXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "7.7",
     imdbVotes: "190,000",
     Type: "movie",
@@ -1187,7 +1222,7 @@ export const englishMovies = [
     Trailer: "https://www.youtube.com/embed/LElu8f8s_uI",
     Featured: true,
     Trending: true,
-    Popular2025: true
+    Popular2025: true,
   },
   {
     imdbID: "tt45",
@@ -1204,7 +1239,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "N/A",
-    Poster: "https://m.media-amazon.com/images/M/MV5BNzQwODI4Y2QtZDUyMy00NTc5LWEwZTUtZDc0NGI2MDNlNzllXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BNzQwODI4Y2QtZDUyMy00NTc5LWEwZTUtZDc0NGI2MDNlNzllXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "N/A",
     imdbVotes: "N/A",
     Type: "movie",
@@ -1240,7 +1276,7 @@ export const englishMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
-  }
+  },
 ];
 
 export const upcomingMovies = [
@@ -1270,7 +1306,7 @@ export const upcomingMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
-    Upcoming: true
+    Upcoming: true,
   },
   {
     imdbID: "tt52",
@@ -1297,7 +1333,7 @@ export const upcomingMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
-    Upcoming: true
+    Upcoming: true,
   },
   {
     imdbID: "tt55",
@@ -1314,7 +1350,8 @@ export const upcomingMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "Upcoming",
-    Poster: "https://via.placeholder.com/300x450/333/fff?text=They+Call+Him+OG+2025",
+    Poster:
+      "https://via.placeholder.com/300x450/333/fff?text=They+Call+Him+OG+2025",
     imdbRating: "N/A",
     imdbVotes: "N/A",
     Type: "movie",
@@ -1324,7 +1361,7 @@ export const upcomingMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
-    Upcoming: true
+    Upcoming: true,
   },
   {
     imdbID: "tt58",
@@ -1351,7 +1388,7 @@ export const upcomingMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
-    Upcoming: true
+    Upcoming: true,
   },
   {
     imdbID: "tt60",
@@ -1368,7 +1405,8 @@ export const upcomingMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Upcoming",
-    Poster: "https://via.placeholder.com/300x450/333/fff?text=Captain+America+2025",
+    Poster:
+      "https://via.placeholder.com/300x450/333/fff?text=Captain+America+2025",
     imdbRating: "N/A",
     imdbVotes: "N/A",
     Type: "movie",
@@ -1378,7 +1416,7 @@ export const upcomingMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
-    Upcoming: true
+    Upcoming: true,
   },
   {
     imdbID: "tt59",
@@ -1395,7 +1433,8 @@ export const upcomingMovies = [
     Language: "Tamil",
     Country: "India",
     Awards: "Upcoming",
-    Poster: "https://via.placeholder.com/300x450/333/fff?text=Jana+Nayagan+2026",
+    Poster:
+      "https://via.placeholder.com/300x450/333/fff?text=Jana+Nayagan+2026",
     imdbRating: "N/A",
     imdbVotes: "N/A",
     Type: "movie",
@@ -1405,7 +1444,7 @@ export const upcomingMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
-    Upcoming: true
+    Upcoming: true,
   },
   {
     imdbID: "tt61",
@@ -1422,7 +1461,8 @@ export const upcomingMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Upcoming",
-    Poster: "https://via.placeholder.com/300x450/333/fff?text=Avengers+Doomsday+2026",
+    Poster:
+      "https://via.placeholder.com/300x450/333/fff?text=Avengers+Doomsday+2026",
     imdbRating: "N/A",
     imdbVotes: "N/A",
     Type: "movie",
@@ -1432,8 +1472,8 @@ export const upcomingMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
-    Upcoming: true
-  }
+    Upcoming: true,
+  },
 ];
 
 // Combine all movies for search functionality
@@ -1441,5 +1481,5 @@ export const allMovies = [
   ...tamilMovies,
   ...teluguMovies,
   ...englishMovies,
-  ...upcomingMovies
+  ...upcomingMovies,
 ];
