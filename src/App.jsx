@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import SearchBar from './components/SearchBar';
@@ -6,7 +6,7 @@ import MovieGrid from './components/MovieGrid';
 import MovieDetails from './components/MovieDetails';
 import TrailerModal from './components/TrailerModal';
 import Particles from './components/Particles';
-import { searchMovies, getMovieDetails } from './services/movieAPI';
+import { searchMovies } from './services/movieAPI';
 import { tamilMovies, englishMovies, teluguMovies, upcomingMovies } from './data/moviesData';
 import './styles/App.css';
 
@@ -21,6 +21,9 @@ function App() {
   const [activeSection, setActiveSection] = useState('featured');
   const [activeLanguage, setActiveLanguage] = useState('all');
 
+  // New ref for the main content area for programmatic scrolling
+  const mainContentRef = useRef(null); 
+
   useEffect(() => {
     loadMovies();
   }, []);
@@ -29,19 +32,14 @@ function App() {
     setLoading(true);
     setError('');
     try {
-      const result = await searchMovies('');
-      
-      // Ensure we have a valid array
-      if (result && Array.isArray(result.movies)) {
-        setMovies(result.movies);
-        setFeaturedMovies(result.movies.filter(movie => movie && movie.Featured));
-        setTrendingMovies(result.movies.filter(movie => movie && movie.Trending));
-      } else {
-        setMovies([]);
-        setFeaturedMovies([]);
-        setTrendingMovies([]);
-        setError('Invalid data received from server');
-      }
+      // Use fallback to local data as initial load
+      const allValidMovies = [...tamilMovies, ...englishMovies, ...teluguMovies]
+        .filter(movie => movie && movie.imdbID);
+        
+      setMovies(allValidMovies.filter(movie => movie.Featured));
+      setFeaturedMovies(allValidMovies.filter(movie => movie.Featured));
+      setTrendingMovies(allValidMovies.filter(movie => movie.Trending));
+
     } catch (err) {
       setError('Failed to load movies.');
       setMovies([]);
@@ -55,6 +53,10 @@ function App() {
   const handleSearch = async (query) => {
     setLoading(true);
     setError('');
+    
+    // Reset language filter on search
+    setActiveLanguage('all'); 
+    
     try {
       const result = await searchMovies(query);
       
@@ -146,20 +148,66 @@ function App() {
     setActiveSection('popular2025');
   };
 
+  // Centralized navigation function
+  const handleNavSelection = (sectionKey) => {
+    // 1. Filter/Content Action
+    switch (sectionKey) {
+      case 'home':
+        showFeatured();
+        break;
+      case 'movies':
+      case 'search':
+        showAll(); 
+        break;
+      case 'trending':
+        showTrending();
+        break;
+      case 'upcoming':
+        showUpcoming();
+        break;
+      case 'languages':
+        // Clicking "Languages" scrolls to the filter section without changing the movie list state
+        setActiveSection('languages-filter');
+        break;
+      default:
+        showFeatured();
+        break;
+    }
+
+    // 2. Scroll Action
+    if (sectionKey === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (mainContentRef.current) {
+      // For all other sections, scroll to the start of the main content area
+      // Short delay to ensure state update (e.g., loading spinner removal) happens first
+      setTimeout(() => {
+        const yOffset = -120; // Adjust for fixed header height
+        const y = mainContentRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }, 50); 
+    }
+  };
+
+
   return (
     <div className="App">
       <Particles />
-      <Header />
+      {/* Pass the navigation handler and active state to Header */}
+      <Header 
+        onNavClick={handleNavSelection}
+        activeSection={activeSection}
+      />
       
-      <main style={{ paddingTop: '80px' }}>
+      {/* Attach the ref to the main content area */}
+      <main style={{ paddingTop: '80px' }} ref={mainContentRef}> 
         <Hero />
         
-        {/* Language Filter Tabs */}
+        {/* Language Filter Tabs - Added id for direct link if needed */}
         <div style={{
           background: 'var(--darker)',
           padding: '1.5rem 0',
           borderBottom: '1px solid rgba(255,255,255,0.1)'
-        }}>
+        }} id="languages">
           <div className="container">
             <h3 style={{ 
               textAlign: 'center', 
@@ -230,11 +278,11 @@ function App() {
                   onClick={tab.action}
                   style={{
                     padding: '12px 24px',
-                    background: activeSection === tab.key ? 
+                    background: activeSection === tab.key || (tab.key === 'all' && (activeSection === 'tamil' || activeSection === 'english' || activeSection === 'telugu' || activeSection === 'search')) ? 
                       'linear-gradient(135deg, #4ecdc4, #44a08d)' : 'transparent',
-                    border: `2px solid ${activeSection === tab.key ? 'transparent' : '#ff6b6b'}`,
+                    border: `2px solid ${activeSection === tab.key || (tab.key === 'all' && (activeSection === 'tamil' || activeSection === 'english' || activeSection === 'telugu' || activeSection === 'search')) ? 'transparent' : '#ff6b6b'}`,
                     borderRadius: '25px',
-                    color: activeSection === tab.key ? 'white' : '#ff6b6b',
+                    color: activeSection === tab.key || (tab.key === 'all' && (activeSection === 'tamil' || activeSection === 'english' || activeSection === 'telugu' || activeSection === 'search')) ? 'white' : '#ff6b6b',
                     cursor: 'pointer',
                     fontWeight: 'bold',
                     transition: 'all 0.3s ease',

@@ -10,8 +10,12 @@ const AppWithRoutes = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/movies" element={<App />} />
+        {/* FIX: Use '/*' to match the base path and all sub-paths 
+            This ensures the App loads correctly on initial deploy (e.g., /samplesearch2/) 
+        */}
+        <Route path="/*" element={<App />} />
+        
+        {/* The '*' route catches anything else, leading to the ErrorPage */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
