@@ -916,7 +916,7 @@ export const englishMovies = [
     Country: "United States",
     Awards: "Nominated for 3 Oscars. 35 wins & 175 nominations total",
     Poster:
-      "https://m.media-amazon.com/images/M/MV5BYmViODNiYTUtNzZlZS00ZWI4LTliMzktYWY2ZmRlMzNkMzRmXkEyXkFqcGc@._V1_.jpg",
+      "https://m.media-amazon.com/images/M/MV5BMmU5NGJlMzAtMGNmOC00YjJjLTgyMzUtNjAyYmE4Njg5YWMyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
     imdbRating: "7.8",
     imdbVotes: "625,000",
     Type: "movie",
@@ -1267,7 +1267,8 @@ export const englishMovies = [
     Language: "English",
     Country: "United States",
     Awards: "N/A",
-    Poster: "https://m.media-amazon.com/images/M/MV5BYjBkOWUwODYtYWI3YS00N2I0LWEyYTktOTJjM2YzOTc3ZDNlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BYjBkOWUwODYtYWI3YS00N2I0LWEyYTktOTJjM2YzOTc3ZDNlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
     imdbRating: "N/A",
     imdbVotes: "N/A",
     Type: "movie",
@@ -1297,7 +1298,8 @@ export const upcomingMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Upcoming",
-    Poster: "https://m.media-amazon.com/images/M/MV5BZDY0MDA5ZWUtZWZjYS00ZDBkLWI0NGEtZDc2YzE3NDBkZmZkXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BZDY0MDA5ZWUtZWZjYS00ZDBkLWI0NGEtZDc2YzE3NDBkZmZkXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "N/A",
     imdbVotes: "N/A",
     Type: "movie",
@@ -1352,7 +1354,8 @@ export const upcomingMovies = [
     Language: "English",
     Country: "United States",
     Awards: "Upcoming",
-    Poster: "https://m.media-amazon.com/images/M/MV5BMzcwYzBhYzYtNDAzMS00N2RjLWI4MGItMzEyYmQ4ZWQzZTEyXkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMzcwYzBhYzYtNDAzMS00N2RjLWI4MGItMzEyYmQ4ZWQzZTEyXkEyXkFqcGc@._V1_.jpg",
     imdbRating: "N/A",
     imdbVotes: "N/A",
     Type: "movie",
@@ -1364,7 +1367,7 @@ export const upcomingMovies = [
     Popular2025: false,
     Upcoming: true,
   },
- {
+  {
     imdbID: "tt65",
     Title: "Salar 2",
     Year: "2026",
@@ -1379,7 +1382,8 @@ export const upcomingMovies = [
     Language: "Telugu",
     Country: "India",
     Awards: "Upcoming",
-    Poster: "https://m.media-amazon.com/images/M/MV5BY2JkNDYzZWYtYmVlYi00OWE3LTlmN2QtYzI1OTg0NmQyMjc3XkEyXkFqcGc@._V1_.jpg",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BY2JkNDYzZWYtYmVlYi00OWE3LTlmN2QtYzI1OTg0NmQyMjc3XkEyXkFqcGc@._V1_.jpg",
     imdbRating: "N/A",
     imdbVotes: "N/A",
     Type: "movie",
