@@ -16,7 +16,6 @@ const isPosterValid = (movie) =>
   !movie.Poster.includes('placeholder') &&
   !movie.Poster.includes('No+Poster'); 
 
-
 function App() {
   const [movies, setMovies] = useState([]);
   const [featuredMovies, setFeaturedMovies] = useState([]);
