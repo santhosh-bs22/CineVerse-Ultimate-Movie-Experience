@@ -2,7 +2,7 @@
 
 ## Experience Tamil Cinema Like Never Before
 
-**MovieHub** is the go-to platform for discovering and exploring the world of Kollywood (Tamil cinema). Built on **React** with a high-performance **Vite** setup, this application is designed for speed, style, and comprehensive movie details.
+**CineVerse-Ultimate-Movie-Experience** is the go-to platform for discovering and exploring the world of Kollywood (Tamil cinema). Built on **React** with a high-performance **Vite** setup, this application is designed for speed, style, and comprehensive movie details.
 
 ---
 
