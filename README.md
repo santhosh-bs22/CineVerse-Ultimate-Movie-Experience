@@ -21,7 +21,7 @@ The application is a rich database of Tamil movies, powered by an integration wi
 
 ## ✨ Core Features
 
-MovieHub is engineered for an intuitive and enjoyable user experience across all devices.
+CineVerse-Ultimate-Movie-Experience is engineered for an intuitive and enjoyable user experience across all devices.
 
 ### 🔍 Discovery & Search
 
