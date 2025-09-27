@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import SearchBar from './components/SearchBar';
@@ -7,8 +7,15 @@ import MovieDetails from './components/MovieDetails';
 import TrailerModal from './components/TrailerModal';
 import Particles from './components/Particles';
 import { searchMovies } from './services/movieAPI';
-import { tamilMovies, englishMovies, teluguMovies, upcomingMovies } from './data/moviesData';
+import { tamilMovies, englishMovies, teluguMovies, upcomingMovies, allMovies } from './data/moviesData';
 import './styles/App.css';
+
+// NEW HELPER: Function to check for valid poster (Poster is true AND is not a known placeholder)
+const isPosterValid = (movie) => 
+  movie.Poster && 
+  !movie.Poster.includes('placeholder') &&
+  !movie.Poster.includes('No+Poster'); 
+
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -24,6 +31,28 @@ function App() {
   // New ref for the main content area for programmatic scrolling
   const mainContentRef = useRef(null); 
 
+  // NEW: Memoize filtered movie lists to apply the Poster check once and consistently
+  const filteredAllMovies = useMemo(() => {
+    return allMovies.filter(movie => movie && movie.imdbID && isPosterValid(movie));
+  }, []);
+
+  const filteredTamilMovies = useMemo(() => {
+    return tamilMovies.filter(isPosterValid);
+  }, []);
+
+  const filteredEnglishMovies = useMemo(() => {
+    return englishMovies.filter(isPosterValid);
+  }, []);
+
+  const filteredTeluguMovies = useMemo(() => {
+    return teluguMovies.filter(isPosterValid);
+  }, []);
+  
+  const filteredUpcomingMovies = useMemo(() => {
+    return upcomingMovies.filter(isPosterValid);
+  }, []);
+  // END NEW MEMOIZED FILTERS
+
   useEffect(() => {
     loadMovies();
   }, []);
@@ -32,13 +61,24 @@ function App() {
     setLoading(true);
     setError('');
     try {
-      // Use fallback to local data as initial load
-      const allValidMovies = [...tamilMovies, ...englishMovies, ...teluguMovies]
-        .filter(movie => movie && movie.imdbID);
+      // Use the memoized filtered lists
+      const featured = filteredAllMovies.filter(movie => movie.Featured);
+      const trending = filteredAllMovies.filter(movie => movie.Trending);
         
-      setMovies(allValidMovies.filter(movie => movie.Featured));
-      setFeaturedMovies(allValidMovies.filter(movie => movie.Featured));
-      setTrendingMovies(allValidMovies.filter(movie => movie.Trending));
+      // Use the filtered list for state
+      setFeaturedMovies(featured);
+      setTrendingMovies(trending);
+
+      // FIX 1: Set initial movie list to a single random featured movie for refresh/initial load
+      if (featured.length > 0) {
+        const randomIndex = Math.floor(Math.random() * featured.length);
+        // Set the initial view to a single random featured movie
+        setMovies([featured[randomIndex]]); 
+        setActiveSection('random'); // New initial state/section
+      } else {
+        setMovies([]);
+        setActiveSection('featured');
+      }
 
     } catch (err) {
       setError('Failed to load movies.');
@@ -62,7 +102,9 @@ function App() {
       
       // Ensure we have a valid array
       if (result && Array.isArray(result.movies)) {
-        setMovies(result.movies);
+        // FIX 2: Apply filter to ensure no results without a poster make it through
+        const filteredResults = result.movies.filter(isPosterValid);
+        setMovies(filteredResults);
       } else {
         setMovies([]);
         setError('Invalid data received from server');
@@ -94,58 +136,61 @@ function App() {
   };
 
   const showFeatured = () => {
-    const validFeatured = featuredMovies.filter(movie => movie && movie.imdbID);
-    setMovies(validFeatured);
+    // Uses pre-filtered featuredMovies
+    setMovies(featuredMovies);
     setActiveSection('featured');
+    setActiveLanguage('all');
   };
 
   const showTrending = () => {
-    const validTrending = trendingMovies.filter(movie => movie && movie.imdbID);
-    setMovies(validTrending);
+    // Uses pre-filtered trendingMovies
+    setMovies(trendingMovies);
     setActiveSection('trending');
+    setActiveLanguage('all');
   };
 
   const showAll = () => {
-    const allValidMovies = [...tamilMovies, ...englishMovies, ...teluguMovies]
-      .filter(movie => movie && movie.imdbID);
-    setMovies(allValidMovies);
+    // Use filteredAllMovies and exclude upcoming
+    setMovies(filteredAllMovies.filter(movie => !movie.Upcoming)); 
     setActiveSection('all');
     setActiveLanguage('all');
   };
 
   const showTamil = () => {
-    const validTamil = tamilMovies.filter(movie => movie && movie.imdbID);
-    setMovies(validTamil);
+    // Uses pre-filtered list
+    setMovies(filteredTamilMovies); 
     setActiveSection('tamil');
     setActiveLanguage('tamil');
   };
 
   const showEnglish = () => {
-    const validEnglish = englishMovies.filter(movie => movie && movie.imdbID);
-    setMovies(validEnglish);
+    // Uses pre-filtered list
+    setMovies(filteredEnglishMovies); 
     setActiveSection('english');
     setActiveLanguage('english');
   };
 
   const showTelugu = () => {
-    const validTelugu = teluguMovies.filter(movie => movie && movie.imdbID);
-    setMovies(validTelugu);
+    // Uses pre-filtered list
+    setMovies(filteredTeluguMovies); 
     setActiveSection('telugu');
     setActiveLanguage('telugu');
   };
 
   const showUpcoming = () => {
-    const validUpcoming = upcomingMovies.filter(movie => movie && movie.imdbID);
-    setMovies(validUpcoming);
+    // Uses pre-filtered list
+    setMovies(filteredUpcomingMovies); 
     setActiveSection('upcoming');
+    setActiveLanguage('all');
   };
 
   const showPopular2025 = () => {
-    const popular2025 = [...tamilMovies, ...englishMovies, ...teluguMovies]
-      .filter(movie => movie && movie.imdbID && (movie.Year === "2025" || movie.Popular2025))
+    const popular2025 = filteredAllMovies // Use filteredAllMovies
+      .filter(movie => (movie.Year === "2025" || movie.Popular2025))
       .sort((a, b) => parseFloat(b.imdbRating || 0) - parseFloat(a.imdbRating || 0));
     setMovies(popular2025);
     setActiveSection('popular2025');
+    setActiveLanguage('all');
   };
 
   // Centralized navigation function
@@ -193,9 +238,10 @@ function App() {
     <div className="App">
       <Particles />
       {/* Pass the navigation handler and active state to Header */}
+      {/* Treat 'random' as 'featured' for header highlighting */}
       <Header 
         onNavClick={handleNavSelection}
-        activeSection={activeSection}
+        activeSection={activeSection === 'random' ? 'featured' : activeSection}
       />
       
       {/* Attach the ref to the main content area */}
@@ -278,11 +324,11 @@ function App() {
                   onClick={tab.action}
                   style={{
                     padding: '12px 24px',
-                    background: activeSection === tab.key || (tab.key === 'all' && (activeSection === 'tamil' || activeSection === 'english' || activeSection === 'telugu' || activeSection === 'search')) ? 
+                    background: (activeSection === tab.key || activeSection === 'random') || (tab.key === 'all' && (activeSection === 'tamil' || activeSection === 'english' || activeSection === 'telugu' || activeSection === 'search')) ? 
                       'linear-gradient(135deg, #4ecdc4, #44a08d)' : 'transparent',
-                    border: `2px solid ${activeSection === tab.key || (tab.key === 'all' && (activeSection === 'tamil' || activeSection === 'english' || activeSection === 'telugu' || activeSection === 'search')) ? 'transparent' : '#ff6b6b'}`,
+                    border: `2px solid ${(activeSection === tab.key || activeSection === 'random') || (tab.key === 'all' && (activeSection === 'tamil' || activeSection === 'english' || activeSection === 'telugu' || activeSection === 'search')) ? 'transparent' : '#ff6b6b'}`,
                     borderRadius: '25px',
-                    color: activeSection === tab.key || (tab.key === 'all' && (activeSection === 'tamil' || activeSection === 'english' || activeSection === 'telugu' || activeSection === 'search')) ? 'white' : '#ff6b6b',
+                    color: (activeSection === tab.key || activeSection === 'random') || (tab.key === 'all' && (activeSection === 'tamil' || activeSection === 'english' || activeSection === 'telugu' || activeSection === 'search')) ? 'white' : '#ff6b6b',
                     cursor: 'pointer',
                     fontWeight: 'bold',
                     transition: 'all 0.3s ease',

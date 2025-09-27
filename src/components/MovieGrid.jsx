@@ -31,6 +31,7 @@ const MovieGrid = ({ movies, onMovieClick, onTrailerClick, loading, category }) 
 
   const getCategoryTitle = () => {
     const titles = {
+      random: 'Movie of the Moment (Refresh for New)', // NEW TITLE for initial random movie
       featured: 'Featured Movies',
       trending: 'Trending Now',
       tamil: 'Tamil Cinema Masterpieces',

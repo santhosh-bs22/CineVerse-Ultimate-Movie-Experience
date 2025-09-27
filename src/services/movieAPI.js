@@ -108,10 +108,13 @@ export const searchMovies = async (query) => {
   // 1. Perform initial local search
   const localFilteredMovies = query 
     ? allMovies.filter(movie =>
-        (movie.Title && movie.Title.toLowerCase().includes(query.toLowerCase())) ||
+        // NEW: POSTER FILTER FOR LOCAL RESULTS
+        (movie.Poster && !movie.Poster.includes('No+Poster')) && 
+        // END NEW POSTER FILTER
+        ((movie.Title && movie.Title.toLowerCase().includes(query.toLowerCase())) ||
         (movie.Director && movie.Director.toLowerCase().includes(query.toLowerCase())) ||
         (movie.Actors && movie.Actors.toLowerCase().includes(query.toLowerCase())) ||
-        (movie.Genre && movie.Genre.toLowerCase().includes(query.toLowerCase()))
+        (movie.Genre && movie.Genre.toLowerCase().includes(query.toLowerCase())))
       )
     : [];
     
@@ -154,6 +157,11 @@ export const searchMovies = async (query) => {
         
         const formattedMovie = formatMovieData(details);
         
+        // NEW: POSTER FILTER FOR API RESULTS - Skip movies without a valid poster
+        if (formattedMovie.Poster.includes('No+Poster')) { 
+            continue; 
+        }
+
         // Add director and actors
         if (details.credits) {
           const director = details.credits.crew.find(person => person.job === 'Director');
