@@ -26,7 +26,7 @@ const SearchBar = ({ onSearch, loading }) => {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="🔍 Search Tamil movies... (e.g., Vikram, Master, PS-1)"
+              placeholder="🔍  Search movies, series, and anime..." 
               className="search-input"
               disabled={loading}
             />
@@ -37,7 +37,7 @@ const SearchBar = ({ onSearch, loading }) => {
                 disabled={loading}
                 className="btn btn-primary"
               >
-                {loading ? '⏳ Searching...' : '🔍 Search'}
+                {loading ? '⏳  Searching...' : '🔍 Search'}
               </button>
               
               <button

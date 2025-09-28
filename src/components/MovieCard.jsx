@@ -11,14 +11,25 @@ const MovieCard = ({ movie, onClick, onTrailerClick }) => {
 
   // Function to get fallback poster based on movie language
   const getFallbackPoster = () => {
-    const language = movie.Language?.toLowerCase() || 'english';
+    // Check if Language property exists, otherwise default to a general emoji
+    const lang = movie.Language ? movie.Language.toLowerCase() : 'english';
     const colors = {
       tamil: 'linear-gradient(135deg, #4ecdc4, #44a08d)',
       telugu: 'linear-gradient(135deg, #ffd166, #ffb347)',
       english: 'linear-gradient(135deg, #ff6b6b, #ef476f)'
     };
     
-    const color = colors[language] || colors.english;
+    // Choose emoji based on media type for fallback display
+    let emoji = '🎬';
+    if (movie.Type === 'series') {
+        emoji = '📺'; // Emoji for Series/TV Show/Anime
+    } else if (lang === 'tamil') {
+        emoji = '🎭';
+    } else if (lang === 'telugu') {
+        emoji = '✨';
+    }
+
+    const color = colors[lang] || colors.english;
     
     return (
       <div style={{
@@ -33,8 +44,7 @@ const MovieCard = ({ movie, onClick, onTrailerClick }) => {
         fontSize: '3rem',
         fontWeight: 'bold'
       }}>
-        <div>{movie.Language === 'Tamil' ? '🎭' : 
-              movie.Language === 'Telugu' ? '✨' : '🎬'}</div>
+        <div>{emoji}</div>
         <div style={{ fontSize: '1rem', marginTop: '10px' }}>
           {movie.Title}
         </div>
@@ -78,7 +88,7 @@ const MovieCard = ({ movie, onClick, onTrailerClick }) => {
         </div>
       )}
       
-      {/* Language Badge */}
+      {/* Language/Type Badge */}
       <div style={{
         position: 'absolute',
         top: '15px',
@@ -91,8 +101,9 @@ const MovieCard = ({ movie, onClick, onTrailerClick }) => {
         fontWeight: 'bold',
         zIndex: 2
       }}>
-        {movie.Language === 'Tamil' ? '🎭' : 
-         movie.Language === 'Telugu' ? '✨' : '🎬'} {movie.Language}
+        {movie.Type === 'series' ? '📺' : 
+         (movie.Language === 'Tamil' ? '🎭' : 
+         (movie.Language === 'Telugu' ? '✨' : '🎬'))} {movie.Language || 'N/A'}
       </div>
 
       {/* Upcoming Badge */}
@@ -241,7 +252,7 @@ const MovieCard = ({ movie, onClick, onTrailerClick }) => {
             {movie.Runtime || 'Duration N/A'}
           </span>
           <span style={{ color: '#ff6b6b', fontSize: '0.8rem', fontWeight: 'bold' }}>
-            {movie.Genre ? movie.Genre.split(',')[0] : 'Genre N/A'}
+            {movie.Type === 'series' ? '📺 SERIES' : (movie.Genre ? movie.Genre.split(',')[0].toUpperCase() : 'GENRE N/A')}
           </span>
         </div>
         

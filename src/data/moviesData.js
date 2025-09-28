@@ -24,6 +24,13 @@ export const tamilMovies = [
     Trailer: "https://www.youtube.com/embed/OKBMCL-frPU",
     Featured: true,
     Trending: true,
+    FullCast: [
+      { name: "Kamal Haasan", character: "Agent Vikram", profilePath: "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/17zscZgz4wOlGDd3Gziw4YbI3G.jpg" },
+      { name: "Vijay Sethupathi", character: "Sandhanam", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/a3HWdfCAbplrvoMNEJCjnkbqqOo.jpg" },
+      { name: "Fahadh Faasil", character: "Amar", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/wmkwZWFHqMptqdt4HacMIAe8OBP.jpg" },
+      { name: "Narain", character: "Bejoy", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/d0ApUGeFuGXpBkODIc6eLbBkb7B.jpg" },
+      { name: "Chemban Vinod Jose", character: "Prapanch", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/4NpejDGdygEzkeDfzJ23wgSlT8G.jpg" },
+    ],
   },
   {
     imdbID: "tt2",
@@ -50,6 +57,13 @@ export const tamilMovies = [
     Trailer: "https://www.youtube.com/embed/UTiXQcrLlv4",
     Featured: true,
     Trending: false,
+    FullCast: [
+      { name: "Vijay", character: "John Durairaj (JD)", profilePath: "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/iGveyp8DuSr3YHK7m6faOXTKrjN.jpg" },
+      { name: "Vijay Sethupathi", character: "Bhavani", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/a3HWdfCAbplrvoMNEJCjnkbqqOo.jpg" },
+      { name: "Malavika Mohanan", character: "Charulatha", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/1dsMnVObyxAQrhopMCXpHUOYWKk.jpg" },
+      { name: "Andrea Jeremiah", character: "Vanathi", profilePath: "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/2AgkEtyffeAU5ikwbpvpjfnDWMt.jpg" },
+      { name: "Shanthanu Bhagyaraj", character: "Bhargav", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/sbNZuxJr7XCCXPxx9lcXMPKVvVF.jpg" },
+    ],
   },
   {
     imdbID: "tt3",
@@ -76,6 +90,13 @@ export const tamilMovies = [
     Trailer: "https://youtu.be/D4qAQYlgZQs?si=9ZwiNcQlmx0za3mo",
     Featured: true,
     Trending: true,
+    FullCast: [
+      { name: "Vikram", character: "Aditya Karikalan", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/c171LQMyHtULZC0RmuIHiiFDOjv.jpg" },
+      { name: "Aishwarya Rai Bachchan", character: "Nandini", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/tXlRA4gZgUiKx2P1odBpyXjnkbX.jpg" },
+      { name: "Jayam Ravi", character: "Arunmozhivarman", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/wKZNz2kOYPYbSrVDIdHZHtQqHs1.jpg" },
+      { name: "Karthi", character: "Vanthiyathevan", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/ycxl56NbjNkJZkYbUMdwGdnBIg7.jpg" },
+      { name: "Trisha Krishnan", character: "Kundavai", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/jfeAV0VeAQhKONzIv1UEYbklJGn.jpg" },
+    ],
   },
   {
     imdbID: "tt4",
@@ -102,6 +123,13 @@ export const tamilMovies = [
     Trailer: "https://www.youtube.com/embed/tLeM2eSsB2Y",
     Featured: false,
     Trending: true,
+    FullCast: [
+      { name: "Suriya", character: "Advocate Chandru", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/hIFXv3gIjlNS78gJmaguEOxvfPH.jpg" },
+      { name: "Lijomol Jose", character: "Senggeni", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/vXFBgF6NMON7L4RzZ6B35lOVYOu.jpg" },
+      { name: "Manikandan", character: "Rajakannu", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/x54nrbLPVxUaStUt5I2om0WuE6j.jpg" },
+      { name: "Rajisha Vijayan", character: "Maitreyi", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/u5Oq0XHQeHeZLg0NbPZCyCo3Uc6.jpg" },
+      { name: "Prakash Raj", character: "IG Perumalsamy", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/dJvFZOXmZdkYCOUcKTXQAhBcAoH.jpg" },
+    ],
   },
   {
     imdbID: "tt5",
@@ -128,6 +156,13 @@ export const tamilMovies = [
     Trailer: "https://www.youtube.com/embed/9mQ7P3piza0",
     Featured: false,
     Trending: true,
+    FullCast: [
+      { name: "Karthi", character: "Dilli", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/ycxl56NbjNkJZkYbUMdwGdnBIg7.jpg" },
+      { name: "Narain", character: "Bejoy", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/d0ApUGeFuGXpBkODIc6eLbBkb7B.jpg" },
+      { name: "Arjun Das", character: "Anbu", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/20RDzfTjpfRHxLYBfnIYXs7vcri.jpg" },
+      { name: "George Maryan", character: "Constable", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/izpHGWpHeMeOV7mXlhF19Hu7IER.jpg" },
+      { name: "Dheena", character: "Ram", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/55YSphc0sahuJ9xvdRtm91k4vF2.jpg" },
+    ],
   },
   {
     imdbID: "tt6",
@@ -151,6 +186,13 @@ export const tamilMovies = [
     Type: "movie",
     BoxOffice: "₹100 crore",
     Production: "V Creations",
+    FullCast: [
+      { name: "Dhanush", character: "Sivasami", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/zStV7UynPk1ThmmIskks7Hqcrxn.jpg" },
+      { name: "Manju Warrier", character: "Pachaiyamma", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/7u1WgUHnwIW9mtL6aTdo1cRXmCM.jpg" },
+      { name: "Ken Karunas", character: "Chidambaram", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/3f6I1GD1yKg9raFBfKCKPP3w7v4.jpg" },
+      { name: "Teejay Arunasalam", character: "Murugan", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/a8mdbaSzPEEH0q0J7twCOKzfYWe.jpg" },
+      { name: "Pasupathy", character: "Rathinavelu", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/5acprpMj9trXNd8QOoKwssjkXkb.jpg" },
+    ],
   },
   {
     imdbID: "tt7",
@@ -174,6 +216,13 @@ export const tamilMovies = [
     Type: "movie",
     BoxOffice: "₹80 crore",
     Production: "Wunderbar Films",
+    FullCast: [
+      { name: "Dhanush", character: "Anbu", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/zStV7UynPk1ThmmIskks7Hqcrxn.jpg" },
+      { name: "Ameer", character: "Rajan", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/7s9TA8J9V3OV2gnyXRUTxxtAppo.jpg" },
+      { name: "Andrea Jeremiah", character: "Chandra", profilePath: "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/2AgkEtyffeAU5ikwbpvpjfnDWMt.jpg" },
+      { name: "Daniel Balaji", character: "Guna", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/a34WYs625aV90XeNaUzPvOBfRw1.jpg" },
+      { name: "Samuthirakani", character: "Senthil", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/hicCPOdDfSRCEYkeb9g53FOY19A.jpg" },
+    ],
   },
   {
     imdbID: "tt8",
@@ -197,6 +246,13 @@ export const tamilMovies = [
     Type: "movie",
     BoxOffice: "₹45 crore",
     Production: "Junglee Pictures",
+    FullCast: [
+      { name: "Vijay Sethupathi", character: "Shilpa", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/a3HWdfCAbplrvoMNEJCjnkbqqOo.jpg" },
+      { name: "Fahadh Faasil", character: "Mukil", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/wmkwZWFHqMptqdt4HacMIAe8OBP.jpg" },
+      { name: "Samantha Ruth Prabhu", character: "Vaembu", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/2tQHkYrMZrED9Bp7p5dyDs4toDS.jpg" },
+      { name: "Ramya Krishnan", character: "Leela", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/7Ex7OHhtotLXOAza1VOcUplPb7O.jpg" },
+      { name: "Mysskin", character: "Arpudham", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/2g65eG5FBh9oOMAhxpfk5T6um6A.jpg" },
+    ],
   },
   {
     imdbID: "tt9",
@@ -220,6 +276,13 @@ export const tamilMovies = [
     Type: "movie",
     BoxOffice: "₹60 crore",
     Production: "Seven Screen Studio",
+    FullCast: [
+      { name: "Vijay Sethupathi", character: "Ramachandran", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/a3HWdfCAbplrvoMNEJCjnkbqqOo.jpg" },
+      { name: "Trisha Krishnan", character: "Janaki", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/jfeAV0VeAQhKONzIv1UEYbklJGn.jpg" },
+      { name: "Devadarshini", character: "Subhashini", profilePath: null },
+      { name: "Gouri G. Kishan", character: "Young Janu", profilePath: null },
+      { name: "Aadithya Bhaskar", character: "Young Ram", profilePath: null },
+    ],
   },
   {
     imdbID: "tt10",
@@ -243,6 +306,13 @@ export const tamilMovies = [
     Type: "movie",
     BoxOffice: "₹25 crore",
     Production: "Neelam Productions",
+    FullCast: [
+      { name: "Kathir", character: "Pariyan", profilePath: null },
+      { name: "Anandhi", character: "Jothimahalakshmi", profilePath: null },
+      { name: "Yogi Babu", character: "Anand", profilePath: null },
+      { name: "G. Marimuthu", character: "Mahalingam", profilePath: null },
+      { name: "Shanmugarajan", character: "Pariyan's Father", profilePath: null },
+    ],
   },
   {
     imdbID: "tt11",
@@ -270,6 +340,13 @@ export const tamilMovies = [
     Featured: false,
     Trending: true,
     Popular2025: false,
+    FullCast: [
+      { name: "Dhanush", character: "Karnan", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/zStV7UynPk1ThmmIskks7Hqcrxn.jpg" },
+      { name: "Lal", character: "Yemen", profilePath: null },
+      { name: "Rajisha Vijayan", character: "Draupathi", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/u5Oq0XHQeHeZLg0NbPZCyCo3Uc6.jpg" },
+      { name: "Yogi Babu", character: "Vadamalaian", profilePath: null },
+      { name: "Gouri G. Kishan", character: "Padmini", profilePath: null },
+    ],
   },
   {
     imdbID: "tt12",
@@ -297,6 +374,13 @@ export const tamilMovies = [
     Featured: true,
     Trending: true,
     Popular2025: false,
+    FullCast: [
+      { name: "Suriya", character: "Nedumaaran Rajangam (Maara)", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/hIFXv3gIjlNS78gJmaguEOxvfPH.jpg" },
+      { name: "Aparna Balamurali", character: "Sundari (Bommi)", profilePath: null },
+      { name: "Paresh Rawal", character: "Paresh Goswami", profilePath: null },
+      { name: "Mohan Babu", character: "Naidu", profilePath: null },
+      { name: "Urvashi", character: "Pechi", profilePath: null },
+    ],
   },
   // --- New Tamil Movies (2024/2025) ---
   {
@@ -325,6 +409,13 @@ export const tamilMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Vijay Sethupathi", character: "Maharaja", profilePath: "nuhttps://media.themoviedb.org/t/p/w276_and_h350_face/a3HWdfCAbplrvoMNEJCjnkbqqOo.jpg" },
+      { name: "Anurag Kashyap", character: "Selvam", profilePath: null },
+      { name: "Mamta Mohandas", character: "Maha", profilePath: null },
+      { name: "Natty Natraj", character: "Inspector", profilePath: null },
+      { name: "Abhirami", character: "DCP's wife", profilePath: null },
+    ],
   },
   {
     imdbID: "tt50",
@@ -352,6 +443,13 @@ export const tamilMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Dhanush", character: "Captain Miller / Eesa", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/zStV7UynPk1ThmmIskks7Hqcrxn.jpg" },
+      { name: "Priyanka Mohan", character: "Ponni", profilePath: null },
+      { name: "Shiva Rajkumar", character: "Sengola", profilePath: null },
+      { name: "Sundeep Kishan", character: "Miller's friend", profilePath: null },
+      { name: "Nivedhithaa Sathish", character: "Thamizh", profilePath: null },
+    ],
   },
   {
     imdbID: "tt51",
@@ -379,6 +477,13 @@ export const tamilMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Dhanush", character: "Raayan", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/zStV7UynPk1ThmmIskks7Hqcrxn.jpg" },
+      { name: "S. J. Suryah", character: "The elder brother", profilePath: null },
+      { name: "Kalidas Jayaram", character: "The younger brother", profilePath: null },
+      { name: "Selvaraghavan", character: "Inspector", profilePath: null },
+      { name: "Prakash Raj", character: "Politician", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/dJvFZOXmZdkYCOUcKTXQAhBcAoH.jpg" },
+    ],
   },
 ];
 
@@ -409,6 +514,13 @@ export const teluguMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "N.T. Rama Rao Jr.", character: "Komaram Bheem", profilePath: null },
+      { name: "Ram Charan", character: "Alluri Sitarama Raju", profilePath: null },
+      { name: "Ajay Devgn", character: "Venkaata Raju", profilePath: null },
+      { name: "Alia Bhatt", character: "Sita", profilePath: null },
+      { name: "Olivia Morris", character: "Jennifer", profilePath: null },
+    ],
   },
   {
     imdbID: "tt14",
@@ -436,6 +548,13 @@ export const teluguMovies = [
     Featured: true,
     Trending: true,
     Popular2025: false,
+    FullCast: [
+      { name: "Prabhas", character: "Amarendra Baahubali", profilePath: null },
+      { name: "Rana Daggubati", character: "Bhallaladeva", profilePath: null },
+      { name: "Anushka Shetty", character: "Devasena", profilePath: null },
+      { name: "Tamannaah Bhatia", character: "Avanthika", profilePath: null },
+      { name: "Sathyaraj", character: "Kattappa", profilePath: null },
+    ],
   },
   {
     imdbID: "tt15",
@@ -463,6 +582,13 @@ export const teluguMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Allu Arjun", character: "Pushpa Raj", profilePath: null },
+      { name: "Fahadh Faasil", character: "SP Bhanwar Singh Shekhawat", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/wmkwZWFHqMptqdt4HacMIAe8OBP.jpg" },
+      { name: "Rashmika Mandanna", character: "Srivalli", profilePath: null },
+      { name: "Dhananjaya", character: "Jolly Reddy", profilePath: null },
+      { name: "Sunil", character: "Mangalam Srinu", profilePath: null },
+    ],
   },
   {
     imdbID: "tt16",
@@ -490,6 +616,13 @@ export const teluguMovies = [
     Featured: false,
     Trending: true,
     Popular2025: false,
+    FullCast: [
+      { name: "Allu Arjun", character: "Bantu", profilePath: null },
+      { name: "Pooja Hegde", character: "Amulya", profilePath: null },
+      { name: "Tabu", character: "Yasu", profilePath: null },
+      { name: "Sushanth", character: "Raj", profilePath: null },
+      { name: "Jayaram", character: "Ramachandra", profilePath: null },
+    ],
   },
   {
     imdbID: "tt17",
@@ -517,6 +650,13 @@ export const teluguMovies = [
     Featured: false,
     Trending: false,
     Popular2025: false,
+    FullCast: [
+      { name: "Mahesh Babu", character: "Major Ajay Krishna", profilePath: null },
+      { name: "Rashmika Mandanna", character: "Samskruthi", profilePath: null },
+      { name: "Vijayashanti", character: "Bharathi", profilePath: null },
+      { name: "Prakash Raj", character: "Nagendra", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/dJvFZOXmZdkYCOUcKTXQAhBcAoH.jpg" },
+      { name: "Rajendra Prasad", character: "Raghavendra", profilePath: null },
+    ],
   },
   {
     imdbID: "tt18",
@@ -544,6 +684,13 @@ export const teluguMovies = [
     Featured: false,
     Trending: false,
     Popular2025: false,
+    FullCast: [
+      { name: "Mahesh Babu", character: "Rishi Kumar", profilePath: null },
+      { name: "Pooja Hegde", character: "Pooja", profilePath: null },
+      { name: "Allari Naresh", character: "Ravi Shankar", profilePath: null },
+      { name: "Jaya Sudha", character: "Rishi's Mother", profilePath: null },
+      { name: "Prakash Raj", character: "Vivek Mittal", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/dJvFZOXmZdkYCOUcKTXQAhBcAoH.jpg" },
+    ],
   },
   {
     imdbID: "tt19",
@@ -571,6 +718,13 @@ export const teluguMovies = [
     Featured: true,
     Trending: false,
     Popular2025: false,
+    FullCast: [
+      { name: "Vijay Deverakonda", character: "Arjun Reddy", profilePath: null },
+      { name: "Shalini Pandey", character: "Preeti Shetty", profilePath: null },
+      { name: "Rahul Ramakrishna", character: "Shiva", profilePath: null },
+      { name: "Kanchana", character: "Arjun's Grandmother", profilePath: null },
+      { name: "Sanjay Swaroop", character: "Arjun's Father", profilePath: null },
+    ],
   },
   {
     imdbID: "tt20",
@@ -598,6 +752,13 @@ export const teluguMovies = [
     Featured: false,
     Trending: true,
     Popular2025: false,
+    FullCast: [
+      { name: "Mahesh Babu", character: "Bharat Ram", profilePath: null },
+      { name: "Kiara Advani", character: "Vasumathi", profilePath: null },
+      { name: "Prakash Raj", character: "Raghavan", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/dJvFZOXmZdkYCOUcKTXQAhBcAoH.jpg" },
+      { name: "Sarathkumar", character: "Chief Minister", profilePath: null },
+      { name: "Rao Ramesh", character: "Krishna", profilePath: null },
+    ],
   },
   {
     imdbID: "tt21",
@@ -625,6 +786,13 @@ export const teluguMovies = [
     Featured: true,
     Trending: false,
     Popular2025: false,
+    FullCast: [
+      { name: "Keerthy Suresh", character: "Savitri", profilePath: null },
+      { name: "Dulquer Salmaan", character: "Gemini Ganesan", profilePath: null },
+      { name: "Samantha Ruth Prabhu", character: "Madhuravani", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/2tQHkYrMZrED9Bp7p5dyDs4toDS.jpg" },
+      { name: "Vijay Deverakonda", character: "Anthony", profilePath: null },
+      { name: "Rajendra Prasad", character: "KV Chowdhary", profilePath: null },
+    ],
   },
   {
     imdbID: "tt22",
@@ -652,6 +820,13 @@ export const teluguMovies = [
     Featured: false,
     Trending: false,
     Popular2025: false,
+    FullCast: [
+      { name: "Venkatesh", character: "Venky", profilePath: null },
+      { name: "Varun Tej", character: "Varun", profilePath: null },
+      { name: "Tamannaah Bhatia", character: "Harika", profilePath: null },
+      { name: "Mehreen Pirzada", character: "Honey", profilePath: null },
+      { name: "Prakash Raj", character: "Prabhakar", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/dJvFZOXmZdkYCOUcKTXQAhBcAoH.jpg" },
+    ],
   },
   {
     imdbID: "tt23",
@@ -679,6 +854,13 @@ export const teluguMovies = [
     Featured: true,
     Trending: true,
     Popular2025: false,
+    FullCast: [
+      { name: "Nani", character: "Arjun", profilePath: null },
+      { name: "Shraddha Srinath", character: "Sarah", profilePath: null },
+      { name: "Sathyaraj", character: "Murthy", profilePath: null },
+      { name: "Ronit Kamra", character: "Nani (Son)", profilePath: null },
+      { name: "Praveen", character: "Praveen", profilePath: null },
+    ],
   },
   {
     imdbID: "tt24",
@@ -706,6 +888,13 @@ export const teluguMovies = [
     Featured: false,
     Trending: false,
     Popular2025: false,
+    FullCast: [
+      { name: "Naga Chaitanya", character: "Poorna", profilePath: null },
+      { name: "Samantha Ruth Prabhu", character: "Sravani", profilePath: "https://media.themoviedb.org/t/p/w180_and_h180_face/2tQHkYrMZrED9Bp7p5dyDs4toDS.jpg" },
+      { name: "Divyansha Kaushik", character: "Anshu", profilePath: null },
+      { name: "Subbaraju", character: "Bhushan", profilePath: null },
+      { name: "Rao Ramesh", character: "Subba Rao", profilePath: null },
+    ],
   },
   // --- Latest Telugu Movies (2024/2025) ---
   {
@@ -734,6 +923,13 @@ export const teluguMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Prabhas", character: "Bhairava", profilePath: null },
+      { name: "Amitabh Bachchan", character: "Ashwatthama", profilePath: null },
+      { name: "Deepika Padukone", character: "Sita", profilePath: null },
+      { name: "Kamal Haasan", character: "Yaskin", profilePath: "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/17zscZgz4wOlGDd3Gziw4YbI3G.jpg" },
+      { name: "Disha Patani", character: "Roxie", profilePath: null },
+    ],
   },
   {
     imdbID: "tt38",
@@ -761,6 +957,13 @@ export const teluguMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Allu Arjun", character: "Pushpa Raj", profilePath: null },
+      { name: "Fahadh Faasil", character: "SP Bhanwar Singh Shekhawat", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/wmkwZWFHqMptqdt4HacMIAe8OBP.jpg" },
+      { name: "Rashmika Mandanna", character: "Srivalli", profilePath: null },
+      { name: "Dhananjaya", character: "Jolly Reddy", profilePath: null },
+      { name: "Sunil", character: "Mangalam Srinu", profilePath: null },
+    ],
   },
   {
     imdbID: "tt53",
@@ -788,6 +991,13 @@ export const teluguMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "N. T. Rama Rao Jr.", character: "Devara", profilePath: null },
+      { name: "Janhvi Kapoor", character: "Thangam", profilePath: null },
+      { name: "Saif Ali Khan", character: "Bhaira", profilePath: null },
+      { name: "Prakash Raj", character: "Raju", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/dJvFZOXmZdkYCOUcKTXQAhBcAoH.jpg" },
+      { name: "Srikanth", character: "Collector", profilePath: null },
+    ],
   },
   {
     imdbID: "tt54",
@@ -815,6 +1025,13 @@ export const teluguMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Ram Charan", character: "Ram", profilePath: null },
+      { name: "Kiara Advani", character: "Asha", profilePath: null },
+      { name: "SJ Suryah", character: "Chief Minister", profilePath: null },
+      { name: "Anjali", character: "Leela", profilePath: null },
+      { name: "Nassar", character: "Judge", profilePath: null },
+    ],
   },
 ];
 
@@ -845,6 +1062,13 @@ export const englishMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Sam Worthington", character: "Jake Sully", profilePath: null },
+      { name: "Zoe Saldana", character: "Neytiri", profilePath: null },
+      { name: "Sigourney Weaver", character: "Kiri", profilePath: null },
+      { name: "Stephen Lang", character: "Miles Quaritch", profilePath: null },
+      { name: "Kate Winslet", character: "Ronal", profilePath: null },
+    ],
   },
   {
     imdbID: "tt26",
@@ -872,6 +1096,13 @@ export const englishMovies = [
     Featured: true,
     Trending: false,
     Popular2025: true,
+    FullCast: [
+      { name: "Tom Holland", character: "Peter Parker / Spider-Man", profilePath: null },
+      { name: "Zendaya", character: "MJ", profilePath: null },
+      { name: "Benedict Cumberbatch", character: "Dr. Strange", profilePath: null },
+      { name: "Jacob Batalon", character: "Ned Leeds", profilePath: null },
+      { name: "Marisa Tomei", character: "Aunt May", profilePath: null },
+    ],
   },
   {
     imdbID: "tt27",
@@ -899,6 +1130,13 @@ export const englishMovies = [
     Featured: true,
     Trending: true,
     Popular2025: false,
+    FullCast: [
+      { name: "Robert Downey Jr.", character: "Tony Stark / Iron Man", profilePath: null },
+      { name: "Chris Evans", character: "Steve Rogers / Captain America", profilePath: null },
+      { name: "Mark Ruffalo", character: "Bruce Banner / Hulk", profilePath: null },
+      { name: "Chris Hemsworth", character: "Thor", profilePath: null },
+      { name: "Scarlett Johansson", character: "Natasha Romanoff / Black Widow", profilePath: null },
+    ],
   },
   {
     imdbID: "tt28",
@@ -926,6 +1164,13 @@ export const englishMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Robert Pattinson", character: "Bruce Wayne / Batman", profilePath: null },
+      { name: "Zoë Kravitz", character: "Selina Kyle / Catwoman", profilePath: null },
+      { name: "Jeffrey Wright", character: "Lt. James Gordon", profilePath: null },
+      { name: "Paul Dano", character: "The Riddler", profilePath: null },
+      { name: "Colin Farrell", character: "Oswald 'Oz' Cobblepot / Penguin", profilePath: null },
+    ],
   },
   {
     imdbID: "tt29",
@@ -953,6 +1198,13 @@ export const englishMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Tom Cruise", character: "Pete 'Maverick' Mitchell", profilePath: null },
+      { name: "Jennifer Connelly", character: "Penelope 'Penny' Benjamin", profilePath: null },
+      { name: "Miles Teller", character: "Bradley 'Rooster' Bradshaw", profilePath: null },
+      { name: "Jon Hamm", character: "Beau 'Cyclone' Simpson", profilePath: null },
+      { name: "Glen Powell", character: "Jake 'Hangman' Seresin", profilePath: null },
+    ],
   },
   {
     imdbID: "tt30",
@@ -980,6 +1232,13 @@ export const englishMovies = [
     Featured: true,
     Trending: false,
     Popular2025: true,
+    FullCast: [
+      { name: "Timothée Chalamet", character: "Paul Atreides", profilePath: null },
+      { name: "Rebecca Ferguson", character: "Lady Jessica Atreides", profilePath: null },
+      { name: "Zendaya", character: "Chani", profilePath: null },
+      { name: "Jason Momoa", character: "Duncan Idaho", profilePath: null },
+      { name: "Oscar Isaac", character: "Duke Leto Atreides", profilePath: null },
+    ],
   },
   {
     imdbID: "tt31",
@@ -1007,6 +1266,13 @@ export const englishMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Keanu Reeves", character: "John Wick", profilePath: null },
+      { name: "Laurence Fishburne", character: "Bowery King", profilePath: null },
+      { name: "George Georgiou", character: "The Elder", profilePath: null },
+      { name: "Donnie Yen", character: "Caine", profilePath: null },
+      { name: "Bill Skarsgård", character: "Marquis", profilePath: null },
+    ],
   },
   {
     imdbID: "tt32",
@@ -1034,6 +1300,13 @@ export const englishMovies = [
     Featured: false,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Letitia Wright", character: "Shuri / Black Panther", profilePath: null },
+      { name: "Lupita Nyong'o", character: "Nakia", profilePath: null },
+      { name: "Danai Gurira", character: "Okoye", profilePath: null },
+      { name: "Winston Duke", character: "M'Baku", profilePath: null },
+      { name: "Angela Bassett", character: "Ramonda", profilePath: null },
+    ],
   },
   {
     imdbID: "tt33",
@@ -1061,6 +1334,13 @@ export const englishMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Chris Pratt", character: "Mario (voice)", profilePath: null },
+      { name: "Anya Taylor-Joy", character: "Princess Peach (voice)", profilePath: null },
+      { name: "Charlie Day", character: "Luigi (voice)", profilePath: null },
+      { name: "Jack Black", character: "Bowser (voice)", profilePath: null },
+      { name: "Keegan-Michael Key", character: "Toad (voice)", profilePath: null },
+    ],
   },
   {
     imdbID: "tt34",
@@ -1088,6 +1368,13 @@ export const englishMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Chris Pratt", character: "Peter Quill / Star-Lord", profilePath: null },
+      { name: "Chukwudi Iwuji", character: "High Evolutionary", profilePath: null },
+      { name: "Bradley Cooper", character: "Rocket (voice)", profilePath: null },
+      { name: "Zoe Saldana", character: "Gamora", profilePath: null },
+      { name: "Dave Bautista", character: "Drax the Destroyer", profilePath: null },
+    ],
   },
   {
     imdbID: "tt35",
@@ -1115,6 +1402,13 @@ export const englishMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Cillian Murphy", character: "J. Robert Oppenheimer", profilePath: null },
+      { name: "Emily Blunt", character: "Kitty Oppenheimer", profilePath: null },
+      { name: "Matt Damon", character: "Leslie Groves", profilePath: null },
+      { name: "Robert Downey Jr.", character: "Lewis Strauss", profilePath: null },
+      { name: "Florence Pugh", character: "Jean Tatlock", profilePath: null },
+    ],
   },
   {
     imdbID: "tt36",
@@ -1142,6 +1436,13 @@ export const englishMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Margot Robbie", character: "Barbie", profilePath: null },
+      { name: "Ryan Gosling", character: "Ken", profilePath: null },
+      { name: "America Ferrera", character: "Gloria", profilePath: null },
+      { name: "Ariana Greenblatt", character: "Sasha", profilePath: null },
+      { name: "Will Ferrell", character: "CEO of Mattel", profilePath: null },
+    ],
   },
   // --- Latest English Movies (2024/2025) ---
   {
@@ -1170,6 +1471,13 @@ export const englishMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Timothée Chalamet", character: "Paul Atreides", profilePath: null },
+      { name: "Zendaya", character: "Chani", profilePath: null },
+      { name: "Rebecca Ferguson", character: "Lady Jessica Atreides", profilePath: null },
+      { name: "Josh Brolin", character: "Gurney Halleck", profilePath: null },
+      { name: "Austin Butler", character: "Feyd-Rautha Harkonnen", profilePath: null },
+    ],
   },
   {
     imdbID: "tt44",
@@ -1197,6 +1505,13 @@ export const englishMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Ryan Reynolds", character: "Wade Wilson / Deadpool", profilePath: null },
+      { name: "Hugh Jackman", character: "Logan / Wolverine", profilePath: null },
+      { name: "Emma Corrin", character: "Cassandra Nova", profilePath: null },
+      { name: "Morena Baccarin", character: "Vanessa", profilePath: null },
+      { name: "Matthew Macfadyen", character: "Paradox", profilePath: null },
+    ],
   },
   {
     imdbID: "tt57",
@@ -1224,6 +1539,13 @@ export const englishMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Amy Poehler", character: "Joy (voice)", profilePath: null },
+      { name: "Maya Hawke", character: "Anxiety (voice)", profilePath: null },
+      { name: "Kensington Tallman", character: "Riley Andersen (voice)", profilePath: null },
+      { name: "Tony Hale", character: "Fear (voice)", profilePath: null },
+      { name: "Lewis Black", character: "Anger (voice)", profilePath: null },
+    ],
   },
   {
     imdbID: "tt45",
@@ -1251,6 +1573,13 @@ export const englishMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Joaquin Phoenix", character: "Arthur Fleck / Joker", profilePath: null },
+      { name: "Lady Gaga", character: "Harleen Quinzel / Harley Quinn", profilePath: null },
+      { name: "Zazie Beetz", character: "Sophie Dumond", profilePath: null },
+      { name: "Brendan Gleeson", character: "Man in Arkham", profilePath: null },
+      { name: "Catherine Keener", character: "Man's Wife", profilePath: null },
+    ],
   },
   {
     imdbID: "tt47",
@@ -1278,6 +1607,13 @@ export const englishMovies = [
     Featured: true,
     Trending: true,
     Popular2025: true,
+    FullCast: [
+      { name: "Aaron Pierre", character: "Mufasa (voice)", profilePath: null },
+      { name: "Kelvin Harrison Jr.", character: "Taka (voice)", profilePath: null },
+      { name: "Beyoncé", character: "Nala (voice)", profilePath: null },
+      { name: "Donald Glover", character: "Simba (voice)", profilePath: null },
+      { name: "Seth Rogen", character: "Pumbaa (voice)", profilePath: null },
+    ],
   },
 ];
 
@@ -1310,6 +1646,13 @@ export const upcomingMovies = [
     Trending: true,
     Popular2025: true,
     Upcoming: true,
+    FullCast: [
+      { name: "Sam Worthington", character: "Jake Sully", profilePath: null },
+      { name: "Zoe Saldana", character: "Neytiri", profilePath: null },
+      { name: "Sigourney Weaver", character: "Kiri", profilePath: null },
+      { name: "Stephen Lang", character: "Miles Quaritch", profilePath: null },
+      { name: "Kate Winslet", character: "Ronal", profilePath: null },
+    ],
   },
   {
     imdbID: "tt55",
@@ -1338,6 +1681,13 @@ export const upcomingMovies = [
     Trending: true,
     Popular2025: true,
     Upcoming: true,
+    FullCast: [
+      { name: "Pawan Kalyan", character: "Ojas Goutham (OG)", profilePath: null },
+      { name: "Emraan Hashmi", character: "Antagonist", profilePath: null },
+      { name: "Priyanka Arul Mohan", character: "Love Interest", profilePath: null },
+      { name: "Shriya Reddy", character: "Gang Member", profilePath: null },
+      { name: "Harshavardhan", character: "Reporter", profilePath: null },
+    ],
   },
   {
     imdbID: "tt73",
@@ -1366,6 +1716,13 @@ export const upcomingMovies = [
     Trending: true,
     Popular2025: false,
     Upcoming: true,
+    FullCast: [
+      { name: "Kristen Bell", character: "Anna (voice)", profilePath: null },
+      { name: "Idina Menzel", character: "Elsa (voice)", profilePath: null },
+      { name: "Josh Gad", character: "Olaf (voice)", profilePath: null },
+      { name: "Jonathan Groff", character: "Kristoff (voice)", profilePath: null },
+      { name: "Sterling K. Brown", character: "Lieutenant Mattias (voice)", profilePath: null },
+    ],
   },
   {
     imdbID: "tt65",
@@ -1394,6 +1751,13 @@ export const upcomingMovies = [
     Trending: true,
     Popular2025: false,
     Upcoming: true,
+    FullCast: [
+      { name: "Prabhas", character: "Salaar / Deva", profilePath: null },
+      { name: "Prithviraj Sukumaran", character: "Vardharaja Mannaar", profilePath: null },
+      { name: "Shruti Haasan", character: "Aadhya", profilePath: null },
+      { name: "Jagapathi Babu", character: "Raja Mannaar", profilePath: null },
+      { name: "Tinnu Anand", character: "Acharya", profilePath: null },
+    ],
   },
   {
     imdbID: "tt59",
@@ -1422,6 +1786,13 @@ export const upcomingMovies = [
     Trending: true,
     Popular2025: true,
     Upcoming: true,
+    FullCast: [
+      { name: "Vijay", character: "Jana Nayagan", profilePath: "https://media.themoviedb.org/t/p/w600_and_h900_bestv2/iGveyp8DuSr3YHK7m6faOXTKrjN.jpg" },
+      { name: "Bobby Deol", character: "Antagonist", profilePath: null },
+      { name: "Pooja Hegde", character: "Love Interest", profilePath: null },
+      { name: "Prakash Raj", character: "Politician", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/dJvFZOXmZdkYCOUcKTXQAhBcAoH.jpg" },
+      { name: "Yogi Babu", character: "Friend", profilePath: null },
+    ],
   },
   {
     imdbID: "tt61",
@@ -1450,6 +1821,13 @@ export const upcomingMovies = [
     Trending: true,
     Popular2025: true,
     Upcoming: true,
+    FullCast: [
+      { name: "Robert Downey Jr.", character: "Tony Stark / Iron Man", profilePath: null },
+      { name: "Chris Evans", character: "Steve Rogers / Captain America", profilePath: null },
+      { name: "Chris Hemsworth", character: "Thor", profilePath: null },
+      { name: "Dhanush", character: "New Character", profilePath: "https://media.themoviedb.org/t/p/w276_and_h350_face/zStV7UynPk1ThmmIskks7Hqcrxn.jpg" },
+      { name: "Brie Larson", character: "Carol Danvers / Captain Marvel", profilePath: null },
+    ],
   },
 ];
 

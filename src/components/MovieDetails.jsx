@@ -4,6 +4,25 @@ const MovieDetails = ({ movie, onClose }) => {
   const [activeTab, setActiveTab] = useState('details');
 
   if (!movie) return null;
+  
+  // New Component to render a cast member card
+  const CastMemberCard = ({ member }) => (
+    <div className="cast-member-card">
+        <img 
+            src={member.profilePath} 
+            alt={member.name} 
+            className="cast-profile-image"
+            // Use TMDB's placeholder image if a profile path is missing or errors out
+            onError={(e) => {
+                e.target.onerror = null; 
+                e.target.src = 'https://via.placeholder.com/100x100/555/fff?text=No+Pic'; // Smaller placeholder for circular image
+            }}
+        />
+        <strong className="cast-name">{member.name}</strong>
+        <p className="cast-character" title={member.character}>as {member.character}</p>
+    </div>
+  );
+
 
   return (
     <div className="movie-details-modal" onClick={onClose}>
@@ -33,7 +52,9 @@ const MovieDetails = ({ movie, onClose }) => {
               <span className="info-badge badge-year">{movie.Year}</span>
               <span className="info-badge badge-rated">{movie.Rated}</span>
               <span className="info-badge badge-runtime">{movie.Runtime}</span>
-              <span className="info-badge badge-type">{movie.Type}</span>
+              <span className="info-badge badge-type">
+                {movie.Type === 'series' ? '📺 Series' : '🎬 Movie'}
+              </span>
             </div>
 
             {/* Rating */}
@@ -83,7 +104,7 @@ const MovieDetails = ({ movie, onClose }) => {
         {/* Navigation Tabs */}
         <div className="tab-buttons">
           {[
-            { key: 'details', label: 'Movie Details', icon: '📖' },
+            { key: 'details', label: 'Storyline', icon: '📖' },
             { key: 'trailer', label: 'Trailer', icon: '🎬' },
             { key: 'cast', label: 'Cast & Crew', icon: '👥' },
             { key: 'technical', label: 'Technical', icon: '⚙️' },
@@ -115,7 +136,7 @@ const MovieDetails = ({ movie, onClose }) => {
                 </div>
                 <div className="info-box">
                   <strong>✍️ Writer</strong>
-                  <p>{movie.Writer}</p>
+                  <p>{movie.Writer}</p> 
                 </div>
                 <div className="info-box">
                   <strong>📅 Release Date</strong>
@@ -150,7 +171,20 @@ const MovieDetails = ({ movie, onClose }) => {
           {/* Cast & Crew Tab */}
           {activeTab === 'cast' && (
             <div>
-              <h3 className="section-title">Cast & Crew</h3>
+              <h3 className="section-title">Cast</h3>
+              
+              {/* Grid for Cast Images */}
+              {movie.FullCast && movie.FullCast.length > 0 ? (
+                <div className="cast-grid">
+                  {movie.FullCast.map(member => (
+                    <CastMemberCard key={member.id || member.name} member={member} />
+                  ))}
+                </div>
+              ) : (
+                <p style={{ color: '#b0b0b0' }}>Detailed cast information with images is not available. Try searching for a movie, or check back later.</p>
+              )}
+              
+              <h3 className="section-title" style={{ marginTop: '20px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '20px' }}>Crew Details</h3>
               <div className="info-grid">
                 <div className="info-box">
                   <strong>🎬 Director</strong>
@@ -159,10 +193,6 @@ const MovieDetails = ({ movie, onClose }) => {
                 <div className="info-box">
                   <strong>✍️ Writers</strong>
                   <p>{movie.Writer}</p>
-                </div>
-                <div className="info-box">
-                  <strong>🌟 Main Cast</strong>
-                  <p>{movie.Actors}</p>
                 </div>
                 <div className="info-box">
                   <strong>🏢 Production</strong>
@@ -179,7 +209,7 @@ const MovieDetails = ({ movie, onClose }) => {
               <div className="info-grid">
                 <div className="info-box">
                   <strong>📺 Type</strong>
-                  <p>{movie.Type}</p>
+                  <p>{movie.Type === 'series' ? 'TV Series' : 'Movie'}</p>
                 </div>
                 <div className="info-box">
                   <strong>⏱️ Runtime</strong>
@@ -233,7 +263,7 @@ const MovieDetails = ({ movie, onClose }) => {
         </div>
       </div>
 
-      {/* Stylesheet */}
+      {/* Stylesheet with new cast grid styles */}
       <style jsx>{`
         /* Base styles */
         .movie-details-modal {
@@ -440,6 +470,63 @@ const MovieDetails = ({ movie, onClose }) => {
           margin-bottom: 20px;
           font-size: 1rem;
         }
+        
+        /* New Cast Grid */
+        .cast-grid {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            scroll-snap-type: x mandatory;
+        }
+        .cast-grid > div {
+            flex-shrink: 0;
+            scroll-snap-align: start;
+        }
+
+        /* NEW CAST CARD STYLES */
+        .cast-member-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 120px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .cast-profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; /* Make it circular */
+            object-fit: cover;
+            margin: 10px auto;
+            display: block;
+            border: 3px solid #4ecdc4; /* Cyan border for style */
+        }
+        
+        .cast-name {
+            color: #ff6b6b; 
+            font-size: 0.9rem;
+            display: block;
+            padding: 0 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .cast-character { 
+            color: #b0b0b0; 
+            font-size: 0.75rem;
+            margin: 5px 0 0;
+            padding: 0 5px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        /* END NEW CAST CARD STYLES */
+
 
         .info-grid {
           display: grid;
