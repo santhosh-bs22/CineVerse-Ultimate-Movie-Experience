@@ -1,3 +1,5 @@
+// src/App.jsx
+
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -10,11 +12,11 @@ import { searchMovies } from './services/movieAPI';
 import { tamilMovies, englishMovies, teluguMovies, upcomingMovies, allMovies } from './data/moviesData';
 import './styles/App.css';
 
-// NEW HELPER: Function to check for valid poster (Poster is true AND is not a known placeholder)
-const isPosterValid = (movie) => 
-  movie.Poster && 
+// HELPER: Function to check for valid poster
+const isPosterValid = (movie) =>
+  movie.Poster &&
   !movie.Poster.includes('placeholder') &&
-  !movie.Poster.includes('No+Poster'); 
+  !movie.Poster.includes('No+Poster');
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -22,104 +24,88 @@ function App() {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [trailerMovie, setTrailerMovie] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true); // Set initial loading to true
   const [error, setError] = useState('');
-  const [activeSection, setActiveSection] = useState('featured');
+  const [activeSection, setActiveSection] = useState('trending'); // Default to trending
   const [activeLanguage, setActiveLanguage] = useState('all');
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(false);
+  const [currentQuery, setCurrentQuery] = useState('');
 
-  // New ref for the main content area for programmatic scrolling
-  const mainContentRef = useRef(null); 
+  const mainContentRef = useRef(null);
 
-  // NEW: Memoize filtered movie lists to apply the Poster check once and consistently
   const filteredAllMovies = useMemo(() => {
     return allMovies.filter(movie => movie && movie.imdbID && isPosterValid(movie));
   }, []);
 
-  const filteredTamilMovies = useMemo(() => {
-    return tamilMovies.filter(isPosterValid);
-  }, []);
+  const filteredTamilMovies = useMemo(() => tamilMovies.filter(isPosterValid), []);
+  const filteredEnglishMovies = useMemo(() => englishMovies.filter(isPosterValid), []);
+  const filteredTeluguMovies = useMemo(() => teluguMovies.filter(isPosterValid), []);
+  const filteredUpcomingMovies = useMemo(() => upcomingMovies.filter(isPosterValid), []);
 
-  const filteredEnglishMovies = useMemo(() => {
-    return englishMovies.filter(isPosterValid);
-  }, []);
-
-  const filteredTeluguMovies = useMemo(() => {
-    return teluguMovies.filter(isPosterValid);
-  }, []);
+  // This function now only pre-loads data for the Featured/Trending buttons.
+  const loadLocalSections = () => {
+    try {
+        const featured = filteredAllMovies.filter(movie => movie.Featured);
+        const trending = filteredAllMovies.filter(movie => movie.Trending);
+        setFeaturedMovies(featured);
+        setTrendingMovies(trending);
+    } catch (err) {
+        console.error("Failed to pre-load local movie sections:", err);
+    }
+  };
   
-  const filteredUpcomingMovies = useMemo(() => {
-    return upcomingMovies.filter(isPosterValid);
-  }, []);
-  // END NEW MEMOIZED FILTERS
-
   useEffect(() => {
-    loadMovies();
+    loadLocalSections(); // Load local data for the buttons
+    handleSearch('', 1); // Fetch initial movies from the API on load
   }, []);
 
-  const loadMovies = async () => {
+
+  const handleSearch = async (query, newPage = 1) => {
     setLoading(true);
     setError('');
-    try {
-      // Use the memoized filtered lists
-      const featured = filteredAllMovies.filter(movie => movie.Featured);
-      const trending = filteredAllMovies.filter(movie => movie.Trending);
-        
-      // Use the filtered list for state
-      setFeaturedMovies(featured);
-      setTrendingMovies(trending);
+    setCurrentQuery(query);
 
-      // FIX 1: Set initial movie list to a single random featured movie for refresh/initial load
-      if (featured.length > 0) {
-        const randomIndex = Math.floor(Math.random() * featured.length);
-        // Set the initial view to a single random featured movie
-        setMovies([featured[randomIndex]]); 
-        setActiveSection('random'); // New initial state/section
+    if (newPage === 1) {
+      setActiveLanguage('all');
+    }
+    
+    try {
+      const result = await searchMovies(query, newPage);
+      
+      if (result && Array.isArray(result.movies)) {
+        const filteredResults = result.movies.filter(isPosterValid);
+        
+        setMovies(prevMovies => newPage === 1 ? filteredResults : [...prevMovies, ...filteredResults]);
+        setHasMore(result.hasMore);
+        
+        if (!query || query.trim() === "") {
+          setActiveSection('trending');
+        } else {
+          setActiveSection('search');
+        }
+
       } else {
         setMovies([]);
-        setActiveSection('featured');
+        setHasMore(false);
+        setError('Invalid data received from server');
       }
-
+      
+      if (result.movies.length === 0 && newPage === 1) {
+        setError('No movies found. Try searching for different keywords.');
+      }
     } catch (err) {
-      setError('Failed to load movies.');
-      setMovies([]);
-      setFeaturedMovies([]);
-      setTrendingMovies([]);
+      setError('Search failed. Please try again.');
+      if (newPage === 1) setMovies([]);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleSearch = async (query) => {
-    setLoading(true);
-    setError('');
-    
-    // Reset language filter on search
-    setActiveLanguage('all'); 
-    
-    try {
-      const result = await searchMovies(query);
-      
-      // Ensure we have a valid array
-      if (result && Array.isArray(result.movies)) {
-        // FIX 2: Apply filter to ensure no results without a poster make it through
-        const filteredResults = result.movies.filter(isPosterValid);
-        setMovies(filteredResults);
-      } else {
-        setMovies([]);
-        setError('Invalid data received from server');
-      }
-      
-      setActiveSection('search');
-      
-      if (result.movies.length === 0) {
-        setError('No movies found. Try searching for different keywords.');
-      }
-    } catch (err) {
-      setError('Search failed. Please try again.');
-      setMovies([]); // Set empty array on error
-    } finally {
-      setLoading(false);
-    }
+  const handleLoadMore = () => {
+    const newPage = page + 1;
+    setPage(newPage);
+    handleSearch(currentQuery, newPage);
   };
 
   const handleMovieClick = async (movie) => {
@@ -135,73 +121,72 @@ function App() {
   };
 
   const showFeatured = () => {
-    // Uses pre-filtered featuredMovies
     setMovies(featuredMovies);
     setActiveSection('featured');
     setActiveLanguage('all');
+    setHasMore(false);
   };
 
   const showTrending = () => {
-    // Uses pre-filtered trendingMovies
     setMovies(trendingMovies);
     setActiveSection('trending');
     setActiveLanguage('all');
+    setHasMore(false);
   };
 
   const showAll = () => {
-    // Use filteredAllMovies and exclude upcoming
-    setMovies(filteredAllMovies.filter(movie => !movie.Upcoming)); 
+    setMovies(filteredAllMovies.filter(movie => !movie.Upcoming));
     setActiveSection('all');
     setActiveLanguage('all');
+    setHasMore(false);
   };
 
   const showTamil = () => {
-    // Uses pre-filtered list
-    setMovies(filteredTamilMovies); 
+    setMovies(filteredTamilMovies);
     setActiveSection('tamil');
     setActiveLanguage('tamil');
+    setHasMore(false);
   };
 
   const showEnglish = () => {
-    // Uses pre-filtered list
-    setMovies(filteredEnglishMovies); 
+    setMovies(filteredEnglishMovies);
     setActiveSection('english');
     setActiveLanguage('english');
+    setHasMore(false);
   };
 
   const showTelugu = () => {
-    // Uses pre-filtered list
-    setMovies(filteredTeluguMovies); 
+    setMovies(filteredTeluguMovies);
     setActiveSection('telugu');
     setActiveLanguage('telugu');
+    setHasMore(false);
   };
 
   const showUpcoming = () => {
-    // Uses pre-filtered list
-    setMovies(filteredUpcomingMovies); 
+    setMovies(filteredUpcomingMovies);
     setActiveSection('upcoming');
     setActiveLanguage('all');
+    setHasMore(false);
   };
 
   const showPopular2025 = () => {
-    const popular2025 = filteredAllMovies // Use filteredAllMovies
+    const popular2025 = filteredAllMovies
       .filter(movie => (movie.Year === "2025" || movie.Popular2025))
       .sort((a, b) => parseFloat(b.imdbRating || 0) - parseFloat(a.imdbRating || 0));
     setMovies(popular2025);
     setActiveSection('popular2025');
     setActiveLanguage('all');
+    setHasMore(false);
   };
 
-  // Centralized navigation function
   const handleNavSelection = (sectionKey) => {
-    // 1. Filter/Content Action
     switch (sectionKey) {
       case 'home':
         showFeatured();
         break;
       case 'movies':
       case 'search':
-        showAll(); 
+        showAll();
         break;
       case 'trending':
         showTrending();
@@ -210,7 +195,6 @@ function App() {
         showUpcoming();
         break;
       case 'languages':
-        // Clicking "Languages" scrolls to the filter section without changing the movie list state
         setActiveSection('languages-filter');
         break;
       default:
@@ -218,17 +202,14 @@ function App() {
         break;
     }
 
-    // 2. Scroll Action
     if (sectionKey === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (mainContentRef.current) {
-      // For all other sections, scroll to the start of the main content area
-      // Short delay to ensure state update (e.g., loading spinner removal) happens first
       setTimeout(() => {
-        const yOffset = -120; // Adjust for fixed header height
+        const yOffset = -120;
         const y = mainContentRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
-      }, 50); 
+      }, 50);
     }
   };
 
@@ -236,27 +217,23 @@ function App() {
   return (
     <div className="App">
       <Particles />
-      {/* Pass the navigation handler and active state to Header */}
-      {/* Treat 'random' as 'featured' for header highlighting */}
-      <Header 
+      <Header
         onNavClick={handleNavSelection}
-        activeSection={activeSection === 'random' ? 'featured' : activeSection}
+        activeSection={activeSection}
       />
-      
-      {/* Attach the ref to the main content area */}
-      <main style={{ paddingTop: '80px' }} ref={mainContentRef}> 
+
+      <main style={{ paddingTop: '80px' }} ref={mainContentRef}>
         <Hero />
-        
-        {/* Language Filter Tabs - Added id for direct link if needed */}
+
         <div style={{
           background: 'var(--darker)',
           padding: '1.5rem 0',
           borderBottom: '1px solid rgba(255,255,255,0.1)'
         }} id="languages">
           <div className="container">
-            <h3 style={{ 
-              textAlign: 'center', 
-              color: '#4ecdc4', 
+            <h3 style={{
+              textAlign: 'center',
+              color: '#4ecdc4',
               marginBottom: '1rem',
               fontSize: '1.2rem'
             }}>
@@ -279,7 +256,7 @@ function App() {
                   onClick={tab.action}
                   style={{
                     padding: '10px 20px',
-                    background: activeLanguage === tab.key ? 
+                    background: activeLanguage === tab.key ?
                       'linear-gradient(135deg, #ff6b6b, #ff8e53)' : 'rgba(255,255,255,0.1)',
                     border: 'none',
                     borderRadius: '20px',
@@ -298,7 +275,6 @@ function App() {
           </div>
         </div>
 
-        {/* Category Navigation Tabs */}
         <div style={{
           background: 'var(--darker)',
           padding: '1.5rem 0',
@@ -323,11 +299,11 @@ function App() {
                   onClick={tab.action}
                   style={{
                     padding: '12px 24px',
-                    background: (activeSection === tab.key || activeSection === 'random') || (tab.key === 'all' && (activeSection === 'tamil' || activeSection === 'english' || activeSection === 'telugu' || activeSection === 'search')) ? 
+                    background: (activeSection === tab.key || (tab.key === 'all' && (activeSection === 'tamil' || activeSection === 'english' || activeSection === 'telugu' || activeSection === 'search'))) ?
                       'linear-gradient(135deg, #4ecdc4, #44a08d)' : 'transparent',
-                    border: `2px solid ${(activeSection === tab.key || activeSection === 'random') || (tab.key === 'all' && (activeSection === 'tamil' || activeSection === 'english' || activeSection === 'telugu' || activeSection === 'search')) ? 'transparent' : '#ff6b6b'}`,
+                    border: `2px solid ${(activeSection === tab.key || (tab.key === 'all' && (activeSection === 'tamil' || activeSection === 'english' || activeSection === 'telugu' || activeSection === 'search'))) ? 'transparent' : '#ff6b6b'}`,
                     borderRadius: '25px',
-                    color: (activeSection === tab.key || activeSection === 'random') || (tab.key === 'all' && (activeSection === 'tamil' || activeSection === 'english' || activeSection === 'telugu' || activeSection === 'search')) ? 'white' : '#ff6b6b',
+                    color: (activeSection === tab.key || (tab.key === 'all' && (activeSection === 'tamil' || activeSection === 'english' || activeSection === 'telugu' || activeSection === 'search'))) ? 'white' : '#ff6b6b',
                     cursor: 'pointer',
                     fontWeight: 'bold',
                     transition: 'all 0.3s ease',
@@ -341,8 +317,8 @@ function App() {
           </div>
         </div>
 
-        <SearchBar onSearch={handleSearch} loading={loading} />
-        
+        <SearchBar onSearch={(query) => { setPage(1); handleSearch(query, 1); }} loading={loading} />
+
         {error && (
           <div style={{
             background: 'linear-gradient(135deg, #ff6b6b, #ff8e53)',
@@ -377,12 +353,14 @@ function App() {
           </div>
         )}
 
-        <MovieGrid 
-          movies={movies} 
+        <MovieGrid
+          movies={movies}
           onMovieClick={handleMovieClick}
           onTrailerClick={handleTrailerClick}
           loading={loading}
           category={activeSection}
+          hasMore={hasMore}
+          loadMore={handleLoadMore}
         />
       </main>
 
@@ -400,7 +378,6 @@ function App() {
         />
       )}
 
-      {/* Footer */}
       <footer style={{
         background: 'var(--darker)',
         padding: '3rem 0',
@@ -412,7 +389,7 @@ function App() {
             🎬 CineVerse - Multi-Language Cinema Universe
           </p>
           <p style={{ color: '#666', fontSize: '0.9rem', maxWidth: '600px', margin: '0 auto' }}>
-            Discover the magic of cinema across languages - Tamil, English, Telugu movies with trailers, ratings, and detailed information. 
+            Discover the magic of cinema across languages - Tamil, English, Telugu movies with trailers, ratings, and detailed information.
             From blockbuster hits to critically acclaimed masterpieces.
           </p>
           <div style={{

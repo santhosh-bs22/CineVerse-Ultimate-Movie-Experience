@@ -51,13 +51,13 @@ const LOCAL_ID_TO_TMDB_MAP = {
 
 
 // Helper function to get property based on media type
-const getProperty = (tmdbData, movieProperty, tvProperty) => 
+const getProperty = (tmdbData, movieProperty, tvProperty) =>
     tmdbData.media_type === 'tv' || tmdbData.Type === 'series' ? tmdbData[tvProperty] : tmdbData[movieProperty];
 
 // Helper function to format TMDB data to match your existing structure
 const formatMovieData = (tmdbData) => {
   // Standardize media type handling
-  const isTV = tmdbData.media_type === 'tv' || tmdbData.Type === 'series' || tmdbData.Type === 'anime'; 
+  const isTV = tmdbData.media_type === 'tv' || tmdbData.Type === 'series' || tmdbData.Type === 'anime';
   const title = getProperty(tmdbData, 'title', 'name');
   const releaseDate = getProperty(tmdbData, 'release_date', 'first_air_date');
   const type = isTV ? 'series' : 'movie'; // Standardize series type
@@ -66,7 +66,7 @@ const formatMovieData = (tmdbData) => {
   if (isTV) {
       // Use the first episode run time as a proxy for series runtime
       runtime = tmdbData.episode_run_time && tmdbData.episode_run_time.length > 0
-          ? `${tmdbData.episode_run_time[0]} min/ep` 
+          ? `${tmdbData.episode_run_time[0]} min/ep`
           : 'N/A';
   } else {
       runtime = tmdbData.runtime ? `${tmdbData.runtime} min` : "N/A";
@@ -81,19 +81,19 @@ const formatMovieData = (tmdbData) => {
     Year: releaseDate
       ? releaseDate.substring(0, 4)
       : "N/A",
-    Rated: tmdbData.adult ? "A" : "UA", 
+    Rated: tmdbData.adult ? "A" : "UA",
     Released: releaseDate || "N/A",
     Runtime: runtime,
     Genre: tmdbData.genres
       ? tmdbData.genres.map((genre) => genre.name).join(", ")
       : "Drama",
-    Director: "N/A", 
-    Writer: "N/A", 
-    Actors: "N/A", 
-    FullCast: [], 
+    Director: "N/A",
+    Writer: "N/A",
+    Actors: "N/A",
+    FullCast: [],
     Plot: tmdbData.overview || "No description available",
     Language: tmdbData.original_language ? tmdbData.original_language.toUpperCase() : "Tamil",
-    Country: "N/A", 
+    Country: "N/A",
     Awards: "N/A",
     Poster: tmdbData.poster_path
       ? `${TMDB_CONFIG.imageBaseUrl}${tmdbData.poster_path}`
@@ -102,7 +102,7 @@ const formatMovieData = (tmdbData) => {
       ? tmdbData.vote_average.toFixed(1)
       : "N/A",
     imdbVotes: tmdbData.vote_count ? tmdbData.vote_count.toString() : "0",
-    Type: type, 
+    Type: type,
     BoxOffice: "N/A",
     Production:
       tmdbData.production_companies &&
@@ -153,7 +153,7 @@ const fetchMovieDetails = async (id, mediaType) => {
     if (!response.ok) throw new Error(`Failed to fetch ${endpoint} details`);
 
     const data = await response.json();
-    data.media_type = endpoint; 
+    data.media_type = endpoint;
     return data;
   } catch (error) {
     console.error(`Error fetching ${endpoint} details:`, error);
@@ -189,15 +189,15 @@ const processCredits = (details) => {
             (person) => person.job === "Director"
         );
         credits.Director = director ? director.name : "N/A";
-        
+
         credits.Writer = details.credits.crew.filter(
             (person) => person.job === "Screenplay" || person.job === "Writer"
         ).map(p => p.name).slice(0, 3).join(', ') || "N/A";
-        
+
         // Create structured cast data (top 10 with images)
         const fullCast = details.credits.cast
             .filter(actor => actor.profile_path)
-            .slice(0, 10) 
+            .slice(0, 10)
             .map(actor => ({
                 id: actor.id,
                 name: actor.name,
@@ -207,17 +207,17 @@ const processCredits = (details) => {
 
         // For backward compatibility (search bar/card info)
         credits.Actors = fullCast.slice(0, 5).map(a => a.name).join(", ");
-        credits.FullCast = fullCast; 
+        credits.FullCast = fullCast;
     }
     return credits;
 };
 
 // Main search function (unchanged)
-export const searchMovies = async (query) => {
+export const searchMovies = async (query, page = 1) => {
   await delay(300);
 
   // 1. Perform initial local search
-  const localFilteredMovies = query
+  const localFilteredMovies = query && page === 1
     ? allMovies.filter(
         (movie) =>
           movie.Poster &&
@@ -237,27 +237,29 @@ export const searchMovies = async (query) => {
 
   let finalMovies = [...localFilteredMovies];
   let totalResults = localFilteredMovies.length;
+  let hasMore = false;
 
   try {
     let url;
 
     if (!query || query.trim() === "") {
-      url = `${TMDB_CONFIG.baseUrl}/trending/all/day?api_key=${TMDB_CONFIG.apiKey}&page=1`;
+      url = `${TMDB_CONFIG.baseUrl}/trending/all/day?api_key=${TMDB_CONFIG.apiKey}&page=${page}`;
     } else {
       url = `${TMDB_CONFIG.baseUrl}/search/multi?api_key=${
         TMDB_CONFIG.apiKey
-      }&query=${encodeURIComponent(query)}`;
+      }&query=${encodeURIComponent(query)}&page=${page}`;
     }
 
     const response = await fetch(url);
     if (!response.ok) throw new Error("Failed to fetch content from API");
 
     const data = await response.json();
+    hasMore = data.page < data.total_pages;
     const mediaResults = data.results.filter(
       (item) => item.media_type === 'movie' || item.media_type === 'tv'
     );
-    
-    const moviesToProcess = mediaResults.slice(0, 15); 
+
+    const moviesToProcess = mediaResults.slice(0, 15);
     const apiMoviesWithDetails = [];
 
     for (const item of moviesToProcess) {
@@ -280,9 +282,9 @@ export const searchMovies = async (query) => {
         const credits = processCredits(details);
         formattedMovie.Director = credits.Director;
         formattedMovie.Writer = credits.Writer;
-        formattedMovie.Actors = credits.Actors; 
+        formattedMovie.Actors = credits.Actors;
         formattedMovie.FullCast = credits.FullCast;
-        
+
         formattedMovie.Trailer = getTrailerUrl(details.videos);
 
         apiMoviesWithDetails.push(formattedMovie);
@@ -297,6 +299,7 @@ export const searchMovies = async (query) => {
     return {
       movies: finalMovies,
       totalResults: totalResults,
+      hasMore,
     };
   } catch (error) {
     console.error("Error searching content (API failed):", error);
@@ -304,9 +307,11 @@ export const searchMovies = async (query) => {
     return {
       movies: finalMovies,
       totalResults: finalMovies.length,
+      hasMore: false,
     };
   }
 };
+
 
 // Get individual movie/series details with enhanced cast fetching for local entries
 export const getMovieDetails = async (imdbID) => {
@@ -314,7 +319,7 @@ export const getMovieDetails = async (imdbID) => {
 
   // 1. Get local movie object
   const localMovie = allMovies.find((movie) => movie.imdbID === imdbID);
-  
+
   // 2. Determine API ID and media type
   let apiId = parseInt(imdbID);
   let mediaType = 'movie'; // Default to movie
@@ -334,13 +339,13 @@ export const getMovieDetails = async (imdbID) => {
   if (localMovie && localMovie.Type === 'series') {
       mediaType = 'tv';
   }
-  
+
   try {
     let details = null;
 
     // 3. Try fetching with the determined ID and media type
     details = await fetchMovieDetails(apiId, mediaType);
-    
+
     // 4. If first attempt fails (e.g., movie was a TV series or vice versa), try the other type
     if (!details) {
         const otherMediaType = mediaType === 'movie' ? 'tv' : 'movie';
@@ -349,27 +354,27 @@ export const getMovieDetails = async (imdbID) => {
     }
 
     if (!details) throw new Error("Content not found on TMDB");
-    
-    details.media_type = mediaType; 
+
+    details.media_type = mediaType;
 
     // 5. Format and process detailed credits
     const formattedMovie = formatMovieData(details);
     const credits = processCredits(details);
     formattedMovie.FullCast = credits.FullCast; // Populate FullCast from API
     formattedMovie.Trailer = getTrailerUrl(details.videos);
-    
+
     // 6. Combine with local data, explicitly overwriting key API-fetched fields
     if (localMovie) {
-        return { 
-          ...localMovie, 
+        return {
+          ...localMovie,
           // Overwrite local fields with richer, fetched data:
           Director: credits.Director,
           Writer: credits.Writer,
-          Actors: credits.Actors, 
+          Actors: credits.Actors,
           FullCast: credits.FullCast, // <-- THE CRITICAL FIX: Overwrite local FullCast with API data
           Trailer: formattedMovie.Trailer,
           // Update derived fields from API for consistency:
-          Title: formattedMovie.Title, 
+          Title: formattedMovie.Title,
           Year: formattedMovie.Year,
           Language: formattedMovie.Language,
           imdbRating: formattedMovie.imdbRating,
@@ -378,7 +383,7 @@ export const getMovieDetails = async (imdbID) => {
           Production: formattedMovie.Production,
         };
     }
-    
+
     return formattedMovie;
   } catch (error) {
     console.error("Error fetching content details:", error);
@@ -391,7 +396,7 @@ export const getMovieDetails = async (imdbID) => {
 // Separate function to fetch trailer only (unchanged)
 export const getMovieTrailer = async (imdbID) => {
     const localMovie = allMovies.find((movie) => movie.imdbID === imdbID);
-    let mediaType = localMovie && localMovie.Type === 'series' ? 'tv' : 'movie'; 
+    let mediaType = localMovie && localMovie.Type === 'series' ? 'tv' : 'movie';
     let apiId = parseInt(imdbID);
 
     if (isNaN(apiId)) {

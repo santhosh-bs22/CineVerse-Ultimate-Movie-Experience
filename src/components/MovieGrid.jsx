@@ -1,3 +1,5 @@
+// src/components/MovieGrid.jsx
+
 import React from "react";
 import MovieCard from "./MovieCard";
 
@@ -7,8 +9,10 @@ const MovieGrid = ({
   onTrailerClick,
   loading,
   category,
+  hasMore,
+  loadMore,
 }) => {
-  if (loading) {
+  if (loading && (!movies || movies.length === 0)) {
     return (
       <div
         style={{
@@ -41,7 +45,6 @@ const MovieGrid = ({
 
   const getCategoryTitle = () => {
     const titles = {
-      random: "Movie of the Moment (Refresh for New)", // NEW TITLE for initial random movie
       featured: "Featured Movies",
       trending: "Trending Now",
       tamil: "Tamil Cinema Masterpieces",
@@ -50,6 +53,7 @@ const MovieGrid = ({
       upcoming: "Upcoming Movies",
       popular2025: "Popular in 2025",
       all: "All Movies Collection",
+      search: "Search Results"
     };
     return titles[category] || "Movie Collection";
   };
@@ -63,7 +67,7 @@ const MovieGrid = ({
         <div className="movies-grid">
           {movies.map((movie, index) => (
             <div
-              key={movie.imdbID}
+              key={`${movie.imdbID}-${index}`}
               className="fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -75,6 +79,21 @@ const MovieGrid = ({
             </div>
           ))}
         </div>
+        {hasMore && (
+          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <button
+              onClick={loadMore}
+              disabled={loading}
+              className="btn btn-primary"
+              style={{
+                padding: '12px 30px',
+                background: 'linear-gradient(135deg, #4ecdc4, #44a08d)',
+              }}
+            >
+              {loading ? 'Loading...' : 'Load More'}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

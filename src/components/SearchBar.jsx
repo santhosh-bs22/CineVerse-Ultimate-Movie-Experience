@@ -1,3 +1,5 @@
+// src/components/SearchBar.jsx
+
 import React, { useState } from 'react';
 
 const SearchBar = ({ onSearch, loading }) => {
@@ -11,8 +13,19 @@ const SearchBar = ({ onSearch, loading }) => {
   };
 
   const handleRandomSearch = () => {
-    const tamilKeywords = ['Vikram', 'Master', 'Jai Bhim', 'Kaithi', 'Asuran', 'PS-1'];
-    const randomKeyword = tamilKeywords[Math.floor(Math.random() * tamilKeywords.length)];
+    const keywords = [
+      // Tamil Movies
+      'Vikram', 'Master', 'Jai Bhim', 'Kaithi', 'Asuran', 'PS-1', 'Maharaja',
+      // Telugu Movies
+      'RRR', 'Baahubali', 'Pushpa', 'Kalki 2898 AD', 'Salaar',
+      // English Movies
+      'Avatar', 'Oppenheimer', 'Dune', 'The Batman', 'Joker', 'Deadpool',
+      // Series
+      'Stranger Things', 'Game of Thrones', 'Money Heist', 'The Boys',
+      // Anime
+      'Naruto', 'Attack on Titan', 'Jujutsu Kaisen', 'One Piece'
+    ];
+    const randomKeyword = keywords[Math.floor(Math.random() * keywords.length)];
     setQuery(randomKeyword);
     onSearch(randomKeyword);
   };
@@ -26,7 +39,7 @@ const SearchBar = ({ onSearch, loading }) => {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="🔍  Search movies, series, and anime..." 
+              placeholder="🎬  Search movies, series, and anime..."
               className="search-input"
               disabled={loading}
             />
